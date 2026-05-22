@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# Scorpio Project by Ahmed Essam ( v3.00 )
+# TheSCORPION HOST (05/22/2026 )
 
 about.html
 aio_patches.bin
@@ -8,16 +8,19 @@ cache.html
 config.mjs
 COPYING
 goldhen.bin
+img.jpg
 index.html
 lapse.mjs
 LICENSE
 psfree.mjs
 psfree_lapse.cache
+README.md
 send.mjs
 AIO_Fix_Temp/patch_aio.c
 AIO_Fix_Temp/vfs_aio2_pdtor.c
 fonts/FONTS.LICENSE
 fonts/LiberationMono-Regular.ttf
+fonts/README.txt
 kpatch/900.c
 kpatch/900.d
 kpatch/900.elf
