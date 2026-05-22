@@ -32,11 +32,11 @@
         /* Glowing Welcome Animation Container */
         .welcome-container {
             display: flex;
-            gap: 10px;
-            font-size: 60px;
+            gap: 6px;
+            font-size: 32px; /* Made smaller so it doesn't cover the screen */
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
         }
 
         /* Glowing Letter Effect */
@@ -62,7 +62,7 @@
                 text-shadow: 0 0 10px #ff3300, 0 0 20px #ff3300, 0 0 30px #ff6600;
             }
             100% {
-                transform: scale(1.15);
+                transform: scale(1.1); /* Slightly reduced scale effect to look cleaner */
                 text-shadow: 0 0 20px #ff3300, 0 0 40px #ff6600, 0 0 60px #ff9900;
                 color: #ffcc00;
             }
