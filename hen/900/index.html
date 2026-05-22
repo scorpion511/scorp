@@ -1,41 +1,90 @@
-</html>
-<title>The Wolf Host Manual Exploit</title>
-<style>
-html, body {
-background-image: url("img.jpg");
-background-size: 100%;
-background-repeat: no-repeat;
-background-color: #24272b;
-color: white;
-text-align: center;
-margin: 0px;
-overflow: hidden;
-}
+<html>
+<head>
+    <title>The Scorpio Host - Ahmed Essam</title>
+    <style>
+        html, body {
+            background: url('img.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
 
-h1 {
-    text-shadow: 0.1em 0.1em 0.2em black;
-    font-size: 25px;
-    color: white;
-}
+        /* Scorpio Status Container */
+        .status-box {
+            margin-top: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            display: inline-block;
+            padding: 50px 70px;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+        }
 
-a {
-    text-decoration: none;
-}
+        #msgs {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e0faff;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+            letter-spacing: 2px;
+        }
 
-#console {
-    display: none;
-}
+        /* Animated Loader */
+        .loader {
+            margin: 30px auto;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #00e5ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-</style><script>
-if (window.applicationCache.status=='0'){window.location.replace("cache.html");}</script>
-<script src="payload.js"></script>
-<script type='module' src='./alert.mjs'></script>
+        /* Stable Designer Credit Rectangle */
+        .designer-credit {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 229, 255, 0.4);
+            padding: 10px 40px;
+            border-radius: 4px;
+            font-size: 22px; /* Restored to stable size */
+            letter-spacing: 2px;
+            color: #00e5ff;
+            white-space: nowrap;
+        }
+        .designer-credit span { color: white; font-weight: bold; }
+
+        #console { display: none; }
+    </style>
+
+    <script>
+        if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
+    </script>
+    <script src="payload.js"></script>
+    <script type='module' src='./alert.mjs'></script>
 </head>
 <body>
-<pre id='console'></pre>
-<br>
-<h1 id=msgs style="font-size: 30px;margin-top: 285px;margin-bottom: 230px;">Jailbreaking <font color=#fc0404> ( Please wait ) ....</h1>
-<br>
-<h1 style="margin-top: 20px; color: red;">Special Thanks to:<a href="https://twitter.com/sleirsgoevy" style="color:white; margin-left: 15px;">@sleirsgoevy</a><a style="color:white; margin-left: 15px;">ChendoChap</a><a href="https://twitter.com/SpecterDev" style="color:white; margin-left: 15px;">@SpecterDev</a><a style="color:white; margin-left: 15px;">SiSTR0</a><a href="https://twitter.com/Znullptr" style="color:white; margin-left: 15px;">@Znullptr</a><a style="color:white; margin-left: 15px;">All developers who contributed to the ps4 scene ...</a></h1>
-</div>
+    <pre id='console'></pre>
+
+    <div class="status-box">
+        <img src="../../logo.png" style="width: 220px; margin-bottom: 25px; filter: drop-shadow(0 0 10px #00e5ff);">
+        <h1 id="msgs">Jailbreaking <span style="color:#fc0404;">( Please wait ) ....</span></h1>
+        <div class="loader"></div>
+    </div>
+
+    <div class="designer-credit">
+        Designed and Compiled By <span>Ahmed Essam</span>
+    </div>
+</body>
 </html>
