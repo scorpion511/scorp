@@ -10,13 +10,14 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             background-color: #121214;
             color: white;
             text-align: center;
             margin: 0px;
             padding: 0px;
             overflow-x: hidden;
-            overflow-y: auto;
+            overflow-y: auto; /* Fixed: Allows the page to scroll naturally on screen */
             min-height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -24,8 +25,8 @@
         /* High-End Glowing Header Style */
         .scorp-header {
             font-size: 32px;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-top: 30px;
+            margin-bottom: 5px;
             text-transform: uppercase;
             font-weight: 900;
             letter-spacing: 2px;
@@ -35,9 +36,9 @@
 
         /* High-End Glowing Credits Style */
         .scorp-credits {
-            font-size: 18px;
-            margin-top: 40px;
-            margin-bottom: 30px;
+            font-size: 16px;
+            margin-top: 30px;
+            margin-bottom: 25px;
             font-weight: bold;
             letter-spacing: 1px;
             color: #fff;
@@ -50,20 +51,20 @@
         .scorp-btn {
             display: inline-block;
             text-decoration: none;
-            background: rgba(20, 20, 25, 0.75);
+            background: rgba(20, 20, 25, 0.85);
             color: #ffffff;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
-            padding: 12px 24px;
-            margin: 8px;
+            padding: 10px 20px;
+            margin: 6px;
             border: 2px solid #ff3300;
-            border-radius: 8px;
+            border-radius: 6px;
             box-shadow: 0 0 10px rgba(255, 51, 0, 0.3), inset 0 0 10px rgba(255, 51, 0, 0.2);
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
-            min-width: 200px;
+            min-width: 180px;
         }
 
         /* Hover Glow and Shake Animation */
@@ -72,29 +73,29 @@
             color: #fff;
             box-shadow: 0 0 20px #ff3300, 0 0 40px #ff6600;
             text-shadow: 0 0 8px #fff;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             animation: shake 0.5s infinite;
         }
 
         /* Special Colored Categories Headers */
         .scorp-cat-title {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
             color: #ffcc00;
-            margin-top: 30px;
-            margin-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             text-shadow: 1px 1px 3px black;
             letter-spacing: 1px;
         }
 
         @keyframes shake {
-            0% { transform: translateY(-3px) translateX(0); }
-            20% { transform: translateY(-3px) translateX(-2px); }
-            40% { transform: translateY(-3px) translateX(2px); }
-            60% { transform: translateY(-3px) translateX(-2px); }
-            80% { transform: translateY(-3px) translateX(2px); }
-            100% { transform: translateY(-3px) translateX(0); }
+            0% { transform: translateY(-2px) translateX(0); }
+            20% { transform: translateY(-2px) translateX(-2px); }
+            40% { transform: translateY(-2px) translateX(2px); }
+            60% { transform: translateY(-2px) translateX(-2px); }
+            80% { transform: translateY(-2px) translateX(2px); }
+            100% { transform: translateY(-2px) translateX(0); }
         }
 
         #clock {
@@ -118,21 +119,43 @@
         }
 
         #msgs {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             color: #ff3300;
-            margin-top: 20px;
-            min-height: 30px;
+            margin-top: 15px;
+            min-height: 25px;
             text-shadow: 1px 1px 3px black;
         }
 
         .menu-section {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px auto;
-            max-width: 90%;
-            border: 1px solid rgba(255, 51, 0, 0.1);
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 10px;
+            padding: 12px;
+            margin: 15px auto;
+            max-width: 85%;
+            border: 1px solid rgba(255, 51, 0, 0.15);
+        }
+        
+        /* Master scrolling interface box */
+        .dashboard-scrollbox {
+            max-height: 62vh;
+            overflow-y: auto;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+        
+        /* Smooth Custom Scrollbar for modern feel */
+        .dashboard-scrollbox::-webkit-scrollbar {
+            width: 8px;
+        }
+        .dashboard-scrollbox::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        .dashboard-scrollbox::-webkit-scrollbar-thumb {
+            background: #ff3300;
+            border-radius: 4px;
+            box-shadow: 0 0 8px #ff3300;
         }
     </style>
     <script>
@@ -167,56 +190,46 @@
     <!-- Status/Hover Message Display -->
     <div id="msgs">Select an Exploit Host or Tool below to begin</div>
 
-    <!-- MAIN DASHBOARD COMPONENT -->
-    
-    <!-- SECTION 1: MAIN HUBS -->
-    <div class="menu-section">
-        <div class="scorp-cat-title">Main Hub Selections</div>
-        <a href="hen/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device gold hen 5.05 / 6.72 / 9.00'">GOLDHEN SELECTION</a>
-        <a href="1index.html" class="scorp-btn" style="border-color: #00ffcc;" onMouseOver="document.getElementById('msgs').innerHTML='Return to Device Selection Page'">← BACK TO HOME</a>
-    </div>
+    <!-- MAIN SCROLLABLE CONTAINER FRAMEWORK -->
+    <div class="dashboard-scrollbox">
+        
+        <!-- SECTION 1: MAIN HUBS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Main Hub Selections</div>
+            <a href="hen/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device gold hen 5.05 / 6.72 / 9.00'">GOLDHEN SELECTION</a>
+            <a href="1index.html" class="scorp-btn" style="border-color: #00ffcc;" onMouseOver="document.getElementById('msgs').innerHTML='Return to Device Selection Page'">← BACK TO HOME</a>
+        </div>
 
-    <!-- SECTION 2: 5.05 EXPLOITS -->
-    <div class="menu-section">
-        <div class="scorp-cat-title">Firmware 5.05 Controls</div>
-        <a href="505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 5.05 Exploit Menu'">5.05 EXPLOIT</a>
-        <a href="restore/505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 5.05'">5.05 CACHE TO USER GUIDE</a>
-    </div>
+        <!-- SECTION 2: 5.05 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 5.05 Controls</div>
+            <a href="505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 5.05 Exploit Menu'">5.05 EXPLOIT</a>
+            <a href="restore/505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 5.05'">5.05 CACHE TO USER GUIDE</a>
+        </div>
 
-    <!-- SECTION 3: 6.72 EXPLOITS -->
-    <div class="menu-section">
-        <div class="scorp-cat-title">Firmware 6.72 Controls</div>
-        <a href="672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 6.72 Exploit Menu'">6.72 EXPLOIT</a>
-        <a href="restore/672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 6.72'">6.72 CACHE TO USER GUIDE</a>
-    </div>
+        <!-- SECTION 3: 6.72 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 6.72 Controls</div>
+            <a href="672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 6.72 Exploit Menu'">6.72 EXPLOIT</a>
+            <a href="restore/672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 6.72'">6.72 CACHE TO USER GUIDE</a>
+        </div>
 
-    <!-- SECTION 4: 9.00 EXPLOITS -->
-    <div class="menu-section">
-        <div class="scorp-cat-title">Firmware 9.00 Controls</div>
-        <a href="900n/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Auto Manual Exploit Full Cache and Compressed version For 900'">9.00/N AUTO EXPLOIT</a>
-        <a href="900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Host Manual Exploit Full Cache and Compressed version For 900'">9.00/C MANUAL EXPLOIT</a>
-        <a href="900a/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='صفحة سكوربيون إصدار 9.00 كامله بالغة العربية'">9.00 EXPLOIT (ARABIC)</a>
-        <br>
-        <a href="restore/900/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/N'">9.00/N CACHE TO USER GUIDE</a>
-        <a href="restore/900/indexc.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/C'">9.00/C CACHE TO USER GUIDE</a>
-        <a href="restore/900/indexa.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='احفظ الصفحة في دليل المستخدمين 900 بالعربية'">9.00 CACHE USER GUIDE (ARABIC)</a>
-    </div>
+        <!-- SECTION 4: 9.00 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 9.00 Controls</div>
+            <a href="900n/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Auto Manual Exploit Full Cache and Compressed version For 900'">9.00/N AUTO EXPLOIT</a>
+            <a href="900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Host Manual Exploit Full Cache and Compressed version For 900'">9.00/C MANUAL EXPLOIT</a>
+            <a href="900a/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='صفحة سكوربيون إصدار 9.00 كامله بالغة العربية'">9.00 EXPLOIT (ARABIC)</a>
+            <br>
+            <a href="restore/900/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/N'">9.00/N CACHE TO USER GUIDE</a>
+            <a href="restore/900/indexc.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/C'">9.00/C CACHE TO USER GUIDE</a>
+            <a href="restore/900/indexa.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='احفظ الصفحة في دليل المستخدمين 900 بالعربية'">9.00 CACHE USER GUIDE (ARABIC)</a>
+        </div>
 
-    <!-- SECTION 5: TRAINERS -->
-    <div class="menu-section">
-        <div class="scorp-cat-title">PS4 Game Trainers</div>
-        <a href="trainer/index505.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 505 Ps4 trainer'">5.05 GAME TRAINER</a>
-        <a href="trainer/index672.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 672 Ps4 trainer'">6.72 GAME TRAINER</a>
-        <a href="trainer/index900.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 900 Ps4 trainer'">9.00 GAME TRAINER</a>
-        <br>
-        <a href="trainer/restore/505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page 505 to a Users Guide Without using usb version Ps4 trainer'">5.05 TRAINER CACHE</a>
-        <a href="trainer/restore/672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page 672 to a Users Guide Without using usb version Ps4 trainer'">6.72 TRAINER CACHE</a>
-    </div>
-
-    <!-- Customized Credit Line -->
-    <div class="scorp-credits">
-        Designed and Compiled By Ahmed ESSAM
-    </div>
-
-</body>
-</html>
+        <!-- SECTION 5: TRAINERS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">PS4 Game Trainers</div>
+            <a href="trainer/index505.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 505 Ps4 trainer'">5.05 GAME TRAINER</a>
+            <a href="trainer/index672.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 672 Ps4 trainer'">6.72 GAME TRAINER</a>
+            <a href="trainer/index900.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 900 Ps4 trainer'">9.00 GAME TRAINER</a>
+            <br>
