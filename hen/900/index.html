@@ -3,17 +3,13 @@
     <title>The Scorpio Host - Ahmed Essam</title>
     <style>
         html, body {
-            background: url('img.jpg') no-repeat center center fixed; 
-            background-size: cover;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+background-image: url('img.jpg');
+background-size: cover !important;
+background-position: center center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed !important;
+background-color: #05161e !important;
         }
-
-        /* Scorpio Status Container */
         .status-box {
             margin-top: 150px;
             background: rgba(255, 255, 255, 0.05);
@@ -33,7 +29,6 @@
             text-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
             letter-spacing: 2px;
         }
-
         /* Animated Loader */
         .loader {
             margin: 30px auto;
@@ -67,7 +62,6 @@
 
         #console { display: none; }
     </style>
-
     <script>
         if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
     </script>
@@ -76,10 +70,8 @@
 </head>
 <body>
     <pre id='console'></pre>
-
     <div class="status-box">
-        <img src="../../logo.png" style="width: 220px; margin-bottom: 25px; filter: drop-shadow(0 0 10px #00e5ff);">
-        <h1 id="msgs">Jailbreaking <span style="color:#fc0404;">( Please wait ) ....</span></h1>
+    <h1 id="msgs">Jailbreaking <span style="color:#fc0404;">( Please wait ) ....</span></h1>
         <div class="loader"></div>
     </div>
 
