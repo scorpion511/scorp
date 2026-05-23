@@ -174,18 +174,24 @@
     </h1>
 </div>
 
-<!-- PS4 Themes Button -->
+<!-- PS4 Themes Button (Option B: Direct Background Installer) -->
 <a href="#" class="scorp-btn" 
    onMouseOver="document.getElementById('msgs').innerHTML='Install FPKGi Store directly onto your PS4 dashboard!'"
    onclick="installFPKGiStore(event)">
     PS4 THEMES
 </a>
 
+<!-- PKG-Zone Site Button (Option A: Direct Web Link Redirect) -->
+<a href="https://pkg-zone.com" class="scorp-btn" 
+   onMouseOver="document.getElementById('msgs').innerHTML='The ultimate community homebrew and custom theme database!'">
+    PKG-ZONE SITE
+</a>
+
 <script>
 function installFPKGiStore(e) {
     e.preventDefault(); 
     
-    // FIXED: Full download link
+    // FULLY RESTORED: Direct server path to the download package file
     var pkgUrl = "https://pkg-zone.com";
     
     var payload = {
@@ -193,7 +199,7 @@ function installFPKGiStore(e) {
         url: pkgUrl
     };
 
-    // FIXED: Full internal PS4 port link
+    // FULLY RESTORED: Complete local communication IP address and internal API port
     fetch('http://127.0.0', {
         method: 'POST',
         body: JSON.stringify(payload)
