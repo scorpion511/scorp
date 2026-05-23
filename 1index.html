@@ -2,116 +2,144 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpion Hack All In 1</title>
     <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
     <style>
         html, body {
             background-image: url('img.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-color: #121214;
             color: white;
             text-align: center;
             margin: 0px;
             padding: 0px;
-            overflow: hidden;
-            height: 100%;
+            height: 100vh; /* Locks interface to exact screen height */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            /* Responsive layout centering engine */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 1.5vh 0;
+        }
+        
+        /* Top Status Indicator Section Bar */
+        .status-top-bar {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #date {
+            font-weight: bold;
+            font-size: 2.2vh;
+            color: #00f0ff;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+        }
+
+        #clock {
+            font-weight: bold;
+            font-size: 2.2vh;
+            color: #00f0ff;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
         }
         
         /* High-End Glowing Header Style */
         .scorp-header {
-            font-size: 32px;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            font-size: 3.8vh; /* Scaled relative to screen height */
+            margin: 1vh 0;
             text-transform: uppercase;
             font-weight: 900;
             letter-spacing: 2px;
             color: #fff;
-            text-shadow: 0 0 10px #ff3300, 0 0 20px #ff3300, 0 0 30px #ff6600, 0 0 40px #ff6600;
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00a8ff;
         }
 
-        /* High-End Glowing Credits Style */
+        /* Dynamic Status/Hover Message Display */
+        #msgs {
+            font-size: 2.6vh;
+            font-weight: bold;
+            color: #00ffcc;
+            margin: 1vh 0;
+            min-height: 4vh;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+        }
+
+        /* Clean Content Container Grid */
+        #all {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0.5vh 0;
+        }
+
+        /* Pure CSS Glowing Buttons - Neon Cyan Glow Variant */
+        .scorp-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: rgba(10, 15, 20, 0.85);
+            color: #ffffff;
+            font-size: 2.2vh;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 1.5vh 3vh;
+            margin: 1vh;
+            border: 2px solid #00f0ff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.2);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 160px;
+        }
+
+        /* Hover Glow Effect */
+        .scorp-btn:hover {
+            background: #00f0ff;
+            color: #000000;
+            box-shadow: 0 0 20px #00f0ff, 0 0 40px #00a8ff;
+            text-shadow: none;
+            transform: translateY(-2px);
+        }
+
+        /* Inline Profile Sub-container section wrapping */
+        .credit-link-wrapper {
+            margin: 0.5vh 0 1.5vh 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .credit-link-wrapper h1 {
+            font-size: 2.2vh;
+            font-family: sans-serif;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* High-End Glowing Footer Credits Style */
         .scorp-credits {
-            font-size: 18px;
-            margin-top: 60px;
+            font-size: 2vh;
+            margin-top: 1vh;
             font-weight: bold;
             letter-spacing: 1px;
             color: #fff;
             text-shadow: 0 0 8px #00ffcc, 0 0 15px #00ffcc, 0 0 25px #00ffcc;
-        }
-
-        /* Pure CSS Glowing Buttons (Replaces Images) */
-        .scorp-btn {
-            display: inline-block;
-            text-decoration: none;
-            background: rgba(20, 20, 25, 0.75);
-            color: #ffffff;
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            padding: 15px 35px;
-            margin: 15px;
-            border: 2px solid #ff3300;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(255, 51, 0, 0.3), inset 0 0 10px rgba(255, 51, 0, 0.2);
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            min-width: 180px;
-        }
-
-        /* Hover Glow and Shake Animation */
-        .scorp-btn:hover {
-            background: #ff3300;
-            color: #fff;
-            box-shadow: 0 0 20px #ff3300, 0 0 40px #ff6600;
-            text-shadow: 0 0 8px #fff;
-            transform: translateY(-3px);
-            animation: shake 0.5s infinite;
-        }
-
-        @keyframes shake {
-            0% { transform: translateY(-3px) translateX(0); }
-            20% { transform: translateY(-3px) translateX(-3px); }
-            40% { transform: translateY(-3px) translateX(3px); }
-            60% { transform: translateY(-3px) translateX(-3px); }
-            80% { transform: translateY(-3px) translateX(3px); }
-            100% { transform: translateY(-3px) translateX(0); }
-        }
-
-        #clock {
-            float: right;
-            margin-right: 2.25%;
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 28px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-        
-        #date {
-            float: left;
-            margin-left: 1.25%;
-            font-weight: bold;
-            margin-top: 15px;
-            font-size: 28px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        #msgs {
-            font-size: 22px;
-            font-weight: bold;
-            color: #ffcc00;
-            margin-top: 20px;
-            min-height: 30px;
-            text-shadow: 1px 1px 3px black;
-        }
-
-        #all {
-            margin-top: 40px;
         }
     </style>
     <script>
@@ -130,13 +158,13 @@
         setInterval(showdate, 1000);
     </script>
 </head>
-<body>
+<body onload="showdate()">
 
-    <!-- Top Status Bar -->
-    <span id="date"></span>
-    <span id="clock"></span>
-    
-    <div style="clear: both;"></div>
+    <!-- Top Status Bar Alignment Container -->
+    <div class="status-top-bar">
+        <span id="date"></span>
+        <span id="clock"></span>
+    </div>
 
     <!-- Main Title -->
     <div class="scorp-header">
@@ -146,71 +174,77 @@
     <!-- Status/Hover Message Display -->
     <div id="msgs">Select an option below to begin</div>
 
-    <!-- Clean Text Buttons (Fixed Relative Local Links) -->
+    <!-- Clean Text Buttons (Fixed Relative Local Links Layout Stream) -->
     <div id="all">
-        <a href="ps3/auto490/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device PS3'">
-            PS3 DEVICE
-        </a>
-        <a href="2index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device PS4'">
-            PS4 DEVICE
-        </a>
-        <a href="ps5/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device PS5'">
-            PS5 DEVICE
-        </a>
         
-        <br><br>
+        <!-- Row 1: Console Selections -->
+        <div class="button-row">
+            <a href="ps3/auto490/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device PS3'">
+                PS3 DEVICE
+            </a>
+            <a href="2index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device PS4'">
+                PS4 DEVICE
+            </a>
+            <a href="ps5/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device PS5'">
+                PS5 DEVICE
+            </a>
+        </div>
         
-      <!-- PS Tools Button -->
-<a href="https://scorpion511.github.io/scorp/900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='A set of tools used PlayStation devices'">
-    PS TOOLS
-</a>
-<!-- Clickable Credit Link Forced Directly Under the Button -->
-<div style="display: block; margin-top: 10px; margin-bottom: 25px; text-align: center; width: 100%;">
-    <h1 style="color: red; font-size: 18px; font-family: sans-serif; font-weight: bold; margin: 0; display: inline-block;">
-       <a href="https://scorpion511.github.io/Ahmed.Essam/hen/index.html" style="color: red; text-decoration: none; border-bottom: 1px dashed red; padding-bottom: 1px;">
-            Ahmed Essam
-        </a>
-    </h1>
-</div>
+        <!-- Row 2: Central Utility Controls and Embedded Redirect Card -->
+        <div class="button-row">
+            <a href="https://github.io" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='A set of tools used PlayStation devices'">
+                PS TOOLS
+            </a>
+        </div>
+        
+        <!-- Standalone Profile Anchor Card Layout Alignment Point -->
+        <div class="credit-link-wrapper">
+            <h1>
+               <a href="https://github.io" style="color: red; text-decoration: none; border-bottom: 1px dashed red; padding-bottom: 1px;">
+                    Ahmed Essam
+                </a>
+            </h1>
+        </div>
 
-<!-- PS4 Themes Button (Option B: Background Installer) -->
-<a href="#" class="scorp-btn" 
-   onMouseOver="document.getElementById('msgs').innerHTML='Install FPKGi Store directly onto your PS4 dashboard!'"
-   onclick="installFPKGiStore(event)">
-    PS4 THEMES
-</a>
+        <!-- Row 3: Extended Package Utility Store Access Panels -->
+        <div class="button-row">
+            <!-- PS4 Themes Button (Option B: Background Installer) -->
+            <a href="#" class="scorp-btn" 
+               onMouseOver="document.getElementById('msgs').innerHTML='Install FPKGi Store directly onto your PS4 dashboard!'"
+               onclick="installFPKGiStore(event)">
+                PS4 THEMES
+            </a>
 
-<!-- PKG-Zone Site Button (Option A: Direct Web Link Redirect) -->
-<a href="https://pkg-zone.com" class="scorp-btn" 
-   onMouseOver="document.getElementById('msgs').innerHTML='The ultimate community homebrew and custom theme database!'">
-    PKG-ZONE SITE
-</a>
+            <!-- PKG-Zone Site Button (Option A: Direct Web Link to Main Homepage) -->
+            <a href="https://pkg-zone.com" class="scorp-btn" 
+               onMouseOver="document.getElementById('msgs').innerHTML='The ultimate community homebrew and custom theme database!'">
+                PKG-ZONE SITE
+            </a>
+        </div>
 
-<script>
-function installFPKGiStore(e) {
-    e.preventDefault(); 
-    
-    // Direct server path to the download package file
-    var pkgUrl = "https://pkg-zone.com";
-    
-    var payload = {
-        type: "direct",
-        url: pkgUrl
-    };
+    <script>
+    function installFPKGiStore(e) {
+        e.preventDefault(); 
+        
+        var pkgUrl = "https://pkg-zone.com";
+        
+        var payload = {
+            type: "direct",
+            url: pkgUrl
+        };
 
-    // Complete local communication IP address and internal API port
-    fetch('http://127.0.0', {
-        method: 'POST',
-        body: JSON.stringify(payload)
-    })
-    .then(response => {
-        document.getElementById('msgs').innerHTML = 'Successfully queued! Check your PS4 Dashboard Notifications.';
-    })
-    .catch(err => {
-        document.getElementById('msgs').innerHTML = 'Error! Ensure GoldHEN or Remote Package Installer is turned ON.';
-    });
-}
-</script>
+        fetch('http://127.0.0', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            document.getElementById('msgs').innerHTML = 'Successfully queued! Check your PS4 Dashboard Notifications.';
+        })
+        .catch(err => {
+            document.getElementById('msgs').innerHTML = 'Error! Ensure GoldHEN or Remote Package Installer is turned ON.';
+        });
+    }
+    </script>
 
 </div>
 
