@@ -160,8 +160,8 @@
         
         <br><br>
         
-       <!-- PS Tools Button -->
-<a href="https://github.io" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='A set of tools used PlayStation devices'">
+      <!-- PS Tools Button -->
+<a href="https://scorpion511.github.io/scorp/900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='A set of tools used PlayStation devices'">
     PS TOOLS
 </a>
 
@@ -174,7 +174,7 @@
     </h1>
 </div>
 
-<!-- PS4 Themes Button (Option B: Direct Background Installer) -->
+<!-- PS4 Themes Button (Option B: Background Installer) -->
 <a href="#" class="scorp-btn" 
    onMouseOver="document.getElementById('msgs').innerHTML='Install FPKGi Store directly onto your PS4 dashboard!'"
    onclick="installFPKGiStore(event)">
@@ -191,7 +191,7 @@
 function installFPKGiStore(e) {
     e.preventDefault(); 
     
-    // FULLY RESTORED: Direct server path to the download package file
+    // Direct server path to the download package file
     var pkgUrl = "https://pkg-zone.com";
     
     var payload = {
@@ -199,7 +199,7 @@ function installFPKGiStore(e) {
         url: pkgUrl
     };
 
-    // FULLY RESTORED: Complete local communication IP address and internal API port
+    // Complete local communication IP address and internal API port
     fetch('http://127.0.0', {
         method: 'POST',
         body: JSON.stringify(payload)
