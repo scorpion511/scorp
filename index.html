@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpion Hack All In 1</title>
-    <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
     
     <!-- Automatically redirects to your 1index.html page after 3 seconds -->
     <meta http-equiv="refresh" content="3;URL=1index.html">
@@ -13,16 +13,18 @@
     <style>
         html, body {
             background-image: url('img.jpg');
-            background-size: cover;
-            background-position: center;
+            /* FIXED SINGLE SHEET BACKDROP STRETCH SETUP */
+            background-size: 100% 100%;
+            background-position: center center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             background-color: #121214;
             color: white;
             text-align: center;
             margin: 0px;
             padding: 0px;
             overflow: hidden;
-            height: 100%;
+            height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
@@ -33,17 +35,17 @@
         .welcome-container {
             display: flex;
             gap: 6px;
-            font-size: 32px; /* Made smaller so it doesn't cover the screen */
+            font-size: 32px; 
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        /* Glowing Letter Effect */
+        /* Glowing Letter Effect - Upgraded to Neon Cyan Glow */
         .welcome-container p {
             margin: 0;
             color: #fff;
-            text-shadow: 0 0 10px #ff3300, 0 0 20px #ff3300, 0 0 30px #ff6600, 0 0 40px #ff6600;
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00a8ff;
             animation: scorpPulse 1.5s ease-in-out infinite alternate;
         }
 
@@ -59,12 +61,12 @@
         @keyframes scorpPulse {
             0% {
                 transform: scale(1);
-                text-shadow: 0 0 10px #ff3300, 0 0 20px #ff3300, 0 0 30px #ff6600;
+                text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00a8ff;
             }
             100% {
-                transform: scale(1.1); /* Slightly reduced scale effect to look cleaner */
-                text-shadow: 0 0 20px #ff3300, 0 0 40px #ff6600, 0 0 60px #ff9900;
-                color: #ffcc00;
+                transform: scale(1.1); 
+                text-shadow: 0 0 20px #00f0ff, 0 0 40px #00a8ff, 0 0 60px #00ffcc;
+                color: #00ffcc; /* Turns into radiant glowing turquoise at peak pulse */
             }
         }
     </style>
