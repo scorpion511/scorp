@@ -217,8 +217,7 @@
                 </a>
             </h1>
         </div>
-
-        <div class="button-row">
+<div class="button-row">
             <a href="#" class="scorp-btn" 
                onMouseOver="document.getElementById('msgs').innerHTML='Install FPKGi Store directly onto your PS4 dashboard!'"
                onclick="installFPKGiStore(event)">
@@ -234,10 +233,20 @@
     <script>
     function installFPKGiStore(e) {
         e.preventDefault(); 
-        var pkgUrl = "https://pkg-zone.com";
+        
+        // Assembling the file download string safely to bypass auto-shorteners
+        var domain = "https://pkg-zone.com";
+        var path = "/download/PKGI13337";
+        var pkgUrl = domain + path;
+        
         var payload = { type: "direct", url: pkgUrl };
 
-        fetch('http://127.0.0', {
+        // Assembling the network IP address safely to bypass auto-shorteners
+        var localIp = "http://127.0.0.1";
+        var localPort = ":12800/api/install";
+        var targetEndpoint = localIp + localPort;
+
+        fetch(targetEndpoint, {
             method: 'POST',
             body: JSON.stringify(payload)
         })
