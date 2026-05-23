@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpion Hack - PS4 Menu</title>
-    <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
     <style>
         html, body {
             background-image: url('img.jpg');
-            background-size: cover;
-            background-position: center;
+            /* FIXED SINGLE SHEET BACKDROP STRETCH SETUP */
+            background-size: 100% 100%;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-color: #121214;
@@ -17,21 +18,47 @@
             margin: 0px;
             padding: 0px;
             overflow-x: hidden;
-            overflow-y: auto; /* Fixed: Allows the page to scroll naturally on screen */
+            overflow-y: auto; 
             min-height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* High-End Glowing Header Style */
+        /* UPGRADED: Running Purple Laser Spark Border Container Box Style */
+        .scorp-header-box {
+            position: relative;
+            margin-top: 6vh; /* Pushes the title box down beautifully into clear viewport sight */
+            margin-bottom: 2vh;
+            padding: 12px 30px;
+            background: rgba(15, 10, 20, 0.85);
+            border-radius: 10px;
+            display: inline-block;
+            overflow: hidden;
+            border: 2px solid transparent;
+            /* Looping linear gradient layers handle the purple running spark effect */
+            background-image: linear-gradient(rgba(15,10,20,0.9), rgba(15,10,20,0.9)), 
+                              linear-gradient(90deg, #bd00ff, #ff007c, transparent, #bd00ff);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-size: 200% 100%;
+            animation: purpleSpark 3s linear infinite;
+            box-shadow: 0 0 15px rgba(189, 0, 255, 0.25);
+        }
+
+        /* Vibrant Glowing Purple Font Header Styling */
         .scorp-header {
-            font-size: 32px;
-            margin-top: 30px;
-            margin-bottom: 5px;
+            font-size: 3.8vh; 
             text-transform: uppercase;
             font-weight: 900;
             letter-spacing: 2px;
             color: #fff;
-            text-shadow: 0 0 10px #ff3300, 0 0 20px #ff3300, 0 0 30px #ff6600, 0 0 40px #ff6600;
+            margin: 0;
+            text-shadow: 0 0 10px #bd00ff, 0 0 20px #ff007c;
+        }
+
+        /* Loops the laser light coordinate positions over time */
+        @keyframes purpleSpark {
+            0% { background-position: 0% 0%, 0% 0%; }
+            100% { background-position: 0% 0%, 200% 0%; }
         }
 
         /* High-End Glowing Credits Style */
@@ -127,15 +154,16 @@
             text-shadow: 1px 1px 3px black;
         }
 
+        /* VERIFIED INVISIBLE BACKGROUND CONTAINER MODULES */
         .menu-section {
-            background: rgba(0, 0, 0, 0.55);
+            background: transparent;
             border-radius: 10px;
             padding: 12px;
             margin: 15px auto;
             max-width: 85%;
-            border: 1px solid rgba(255, 51, 0, 0.15);
+            border: none; 
         }
-        
+
         /* Master scrolling interface box */
         .dashboard-scrollbox {
             max-height: 62vh;
@@ -152,10 +180,11 @@
             background: rgba(0,0,0,0.3);
             border-radius: 4px;
         }
+        /* UPDATED: Thumb color is changed to purple to blend with header box laser accents */
         .dashboard-scrollbox::-webkit-scrollbar-thumb {
-            background: #ff3300;
+            background: #bd00ff;
             border-radius: 4px;
-            box-shadow: 0 0 8px #ff3300;
+            box-shadow: 0 0 8px #bd00ff;
         }
     </style>
     <script>
@@ -174,7 +203,7 @@
         setInterval(showdate, 1000);
     </script>
 </head>
-<body>
+<body onload="showdate()">
 
     <!-- Top Status Bar -->
     <span id="date"></span>
@@ -182,11 +211,12 @@
     
     <div style="clear: both;"></div>
 
-    <!-- Main Title -->
-    <div class="scorp-header">
-        WELCOME TO SCORPION HACK ALL IN 1
+    <!-- Main Title Wrapped Inside Looping Purple Spark Running Border -->
+    <div class="scorp-header-box">
+        <h1 class="scorp-header">
+            WELCOME TO SCORPION HACK ALL IN 1
+        </h1>
     </div>
-
     <!-- Status/Hover Message Display -->
     <div id="msgs">Select an Exploit Host or Tool below to begin</div>
 
