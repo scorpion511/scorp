@@ -53,21 +53,29 @@ else {
     Ahmed Essam
   </span>
 </h1>
+
+<!-- The element that shows the status messages -->
+<div id="msgs2" style="color: white; font-family: sans-serif; font-size: 20px; text-align: center; margin-top: 20px;"></div>
+
 <style>
 @keyframes rainbow-move {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Forces the msgs2 status text to stay white */
+#msgs2 {
+  color: #ffffff !important;
+}
 </style>
 
-</body>
 <script>
 function load_goldhen() {
-msgs2.innerHTML="Gold HEN Loading... please wait";
-LoadedMSG="Gold HEN Loaded";
-PLfile='goldhen.bin';
-setTimeout(jailbreak,500);
+  document.getElementById("msgs2").innerHTML = "Gold HEN Loading... please wait";
+  LoadedMSG = "Gold HEN Loaded";
+  PLfile = 'goldhen.bin';
+  setTimeout(jailbreak, 500);
 }
 </script>
 </body>
