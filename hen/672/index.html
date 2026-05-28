@@ -40,22 +40,22 @@ else {
 	window.msgs2.innerHTML="<h1>Failed to Load Jailbreak! - Restart your Console.</h1>";
 	return;
 }
-}
 </script>
 </head>
 <body onload="setTimeout(load_goldhen, 500);">
 <br>
 <h1 id=msgs2 style="font-size: 30px;margin-top: 350px;margin-bottom: 391px;"> GoldHEN 2.4b16...Loading... please wait... </h1>
 <br>
-<h1 style="margin-top:43px; color:white; font-family:sans-serif;">
+<!-- The element that shows the status messages -->
+<div id="msgs2" style="color: white; font-family: sans-serif; font-size: 20px; text-align: center; margin-top: 20px;"></div>
+
+<!-- Your corrected heading tag that sticks permanently to the bottom -->
+<h1 style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 100%; margin: 0; color:white; font-family:sans-serif; text-align: center; z-index: 9999;">
   Compiled and Hacked By 
   <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; animation: rainbow-move 5s linear infinite;">
     Ahmed Essam
   </span>
 </h1>
-
-<!-- The element that shows the status messages -->
-<div id="msgs2" style="color: white; font-family: sans-serif; font-size: 20px; text-align: center; margin-top: 20px;"></div>
 
 <style>
 @keyframes rainbow-move {
@@ -80,3 +80,4 @@ function load_goldhen() {
 </script>
 </body>
 </html>
+
