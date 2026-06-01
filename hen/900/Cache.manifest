@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# TheSCORPION HOST (05/22/2026 )
+# TheSCORPION HOST (06/05/2026 - GH 18.10 Dual Engine Update)
 
 about.html
 aio_patches.bin
@@ -8,6 +8,7 @@ cache.html
 config.mjs
 COPYING
 goldhen.bin
+goldhen_24b1810.bin
 img.jpg
 index.html
 lapse.mjs
