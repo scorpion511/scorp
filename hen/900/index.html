@@ -1,4 +1,7 @@
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <title>SCORPION Auto Exploit 9.00</title>
 <style>
 html, body {
@@ -25,10 +28,49 @@ a {
 #console {
     display: none;
 }
+</style>
+<script>
+if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
 
-</style><script>
-if (window.applicationCache.status=='0'){window.location.replace("cache.html");}</script>
-<script src="payload.js"></script>
+// DYNAMIC ROUTING ENGINE: Checks which main menu button was pressed
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // IF USER CLICKED THE NEW COSMIC PURPLE BUTTON (?v=1810): Load the raw binary streams synchronously
+    if (urlParams.get('v') === '1810') {
+        console.log("[Scorp Engine] Synchronizing memory space for GoldHEN 18.10...");
+        var request = new XMLHttpRequest();
+        request.open('GET', 'goldhen_24b1810.bin', false); // Forces the exploit to pause and wait
+        request.overrideMimeType('text/plain; charset=x-user-defined');
+        request.send(null);
+
+        if (request.status === 200) {
+            var resp = request.responseText;
+            var len = resp.length;
+            var regularArray = new Array(len);
+            for (var i = 0; i < len; i++) { regularArray[i] = resp.charCodeAt(i) & 0xff; }
+            
+            var buffer = new ArrayBuffer(len);
+            var view = new Uint8Array(buffer);
+            for (var i = 0; i < len; i++) { view[i] = regularArray[i]; }
+
+            // Lock variables into memory slots right before modules fire
+            window.PLD = view;
+            window.payload = regularArray;
+            window.scorpUseBinary = true; 
+            console.log("[Scorp Engine] Core structures mapped successfully.");
+        }
+    }
+})();
+</script>
+<script>
+    // IF USER CLICKED THE OLD BUTTON: Dynamically inject your old working payload.js script tag
+    if (!window.scorpUseBinary) {
+        let script = document.createElement('script');
+        script.src = "payload.js";
+        document.head.appendChild(script);
+    }
+</script>
 <script type='module' src='./alert.mjs'></script>
 </head>
 <body>
@@ -39,5 +81,5 @@ if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
 <h1 style="margin-top: 10px; color: red;">
     Designed and Compiled By: <a href="https://scorpion511.github.io/Ahmed.Essam/hen/index.html" style="color: red; text-decoration: none;">Ahmed Essam</a>
 </h1>
-</div>
+</body>
 </html>
