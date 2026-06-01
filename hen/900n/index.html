@@ -30,25 +30,12 @@ a {
 }
 </style>
 <script>
-// Keep your exact application cache redirect safe
+// Safely retain your original offline workspace redirect routing
 if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
-
-// 1. Fetch your new GoldHEN 18.10 binary directly from your server path
-fetch('goldhen_24b1810.bin')
-    .then(response => response.arrayBuffer())
-    .then(buffer => {
-        // 2. Convert the raw binary data into a byte array
-        let uint8 = new Uint8Array(buffer);
-        
-        // 3. Inject it straight into the 'payload' memory variable your exploit looks for
-        window.payload = Array.from(uint8); 
-        console.log("GoldHEN 18.10 binary array loaded into memory successfully.");
-    })
-    .catch(err => {
-        document.getElementById("msgs").innerHTML = "Error loading GoldHEN 18.10 binary!";
-        console.error(err);
-    });
 </script>
+<!-- 1. Dynamically sync the new payload byte array synchronously -->
+<script src="load_gh.js"></script>
+<!-- 2. Fire your working system module loops normally -->
 <script type='module' src='./alert.mjs'></script>
 </head>
 <body>
