@@ -6,80 +6,87 @@
 <style>
 html, body {
 background-image: url("img.jpg");
-background-size: 100%;
-background-repeat: no-repeat;
-background-color: #24272b;
+background-size: cover !important;
+background-position: center center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed !important;
+background-color: #05161e !important;
 color: white;
 text-align: center;
 margin: 0px;
 overflow: hidden;
 }
 
-h1 {
-    text-shadow: 0.1em 0.1em 0.2em black;
-    font-size: 25px;
-    color: white;
+.status-box {
+    margin-top: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    display: inline-block;
+    padding: 50px 70px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
 }
 
-a {
-    text-decoration: none;
+#msgs {
+    font-size: 32px;
+    font-weight: bold;
+    color: #e0faff;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+    letter-spacing: 2px;
 }
 
-#console {
-    display: none;
+/* Animated Loader from your successful layout */
+.loader {
+    margin: 30px auto;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #00e5ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Stable Designer Credit Rectangle from your successful layout */
+.designer-credit {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    padding: 10px 40px;
+    border-radius: 4px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #00e5ff;
+    white-space: nowrap;
+}
+.designer-credit span { color: white; font-weight: bold; }
+
+#console { display: none; }
 </style>
 <script>
-if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
-
-// DYNAMIC ROUTING ENGINE: Checks which main menu button was pressed
-(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // IF USER CLICKED THE NEW COSMIC PURPLE BUTTON (?v=1810): Load the raw binary streams synchronously
-    if (urlParams.get('v') === '1810') {
-        console.log("[Scorp Engine] Synchronizing memory space for GoldHEN 18.10...");
-        var request = new XMLHttpRequest();
-        request.open('GET', 'goldhen_24b1810.bin', false); // Forces the exploit to pause and wait
-        request.overrideMimeType('text/plain; charset=x-user-defined');
-        request.send(null);
-
-        if (request.status === 200) {
-            var resp = request.responseText;
-            var len = resp.length;
-            var regularArray = new Array(len);
-            for (var i = 0; i < len; i++) { regularArray[i] = resp.charCodeAt(i) & 0xff; }
-            
-            var buffer = new ArrayBuffer(len);
-            var view = new Uint8Array(buffer);
-            for (var i = 0; i < len; i++) { view[i] = regularArray[i]; }
-
-            // Lock variables into memory slots right before modules fire
-            window.PLD = view;
-            window.payload = regularArray;
-            window.scorpUseBinary = true; 
-            console.log("[Scorp Engine] Core structures mapped successfully.");
-        }
-    }
-})();
+    if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
 </script>
-<script>
-    // IF USER CLICKED THE OLD BUTTON: Dynamically inject your old working payload.js script tag
-    if (!window.scorpUseBinary) {
-        let script = document.createElement('script');
-        script.src = "payload.js";
-        document.head.appendChild(script);
-    }
-</script>
+<!-- Exact automated injection scripts from your successful project -->
+<script src="payload.js"></script>
 <script type='module' src='./alert.mjs'></script>
 </head>
 <body>
-<pre id='console'></pre>
-<br>
-<h1 id=msgs style="font-size: 30px;margin-top: 285px;margin-bottom: 40px;">Jailbreaking <font color=#fc0404> ( Please wait ) ....</h1>
-<br>
-<h1 style="margin-top: 10px; color: red;">
-    Designed and Compiled By: <a href="https://scorpion511.github.io/Ahmed.Essam/hen/index.html" style="color: red; text-decoration: none;">Ahmed Essam</a>
-</h1>
+    <pre id='console'></pre>
+    
+    <div class="status-box">
+        <h1 id="msgs">Jailbreaking <span style="color:#fc0404;">( Please wait ) ....</span></h1>
+        <div class="loader"></div>
+    </div>
+
+    <div class="designer-credit">
+        Designed and Compiled By <span>Ahmed Essam</span>
+    </div>
 </body>
 </html>
