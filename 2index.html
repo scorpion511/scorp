@@ -209,10 +209,11 @@
     <span id="date"></span>
     <span id="clock"></span>
     
-    <!-- Floating Counter elements safely overlaying the left section underneath the date -->
-    <div style="position: absolute; top: 52px; left: 1.25%; text-align: left; z-index: 9999;">
-        <span style="font-size: 14px; color: #bd00ff; font-weight: bold; text-shadow: 0 0 5px rgba(189, 0, 255, 0.5); letter-spacing: 0.5px;">VISITS: </span>
-        <span id="scorp-live-text" style="font-size: 16px; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">0</span>
+    <!-- FIXED: Unified Top-Left Floating Counter Element directly underneath the date view -->
+    <div style="position: absolute; top: 55px; left: 1.25%; text-align: left; z-index: 10000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <span style="font-size: 14px; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL VISITS: </span>
+        <!-- Glowing yellow text with burning black fire multi-layer text shadow -->
+        <span id="scorp-live-text" style="font-size: 18px; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -1px 4px #ffcc00, 1px -3px 8px #ff3300, -1px -6px 12px #000, 0 -10px 18px #000;">0000</span>
     </div>
     
     <div style="clear: both;"></div>
@@ -223,28 +224,6 @@
             WELCOME TO SCORPION HACK ALL IN 1
         </h1>
     </div>
-
-    <!-- Live text analytic tracking script logic -->
-        <!-- Live text analytic tracking script logic -->
-    <script>
-    // Splitting the path into two parts so the editor cannot truncate it
-    var hostUrl = 'https://counterapi.dev';
-    var pathUrl = '/api/scorpion511/view/up';
-    var fullUrl = hostUrl + pathUrl;
-
-    fetch(fullUrl)
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-        if(data && data.value) {
-            document.getElementById('scorp-live-text').innerText = data.value;
-        }
-    })
-    .catch(function(err) {
-        console.log("Counter skipped.", err);
-    });
-</script>
-
-    <!-- KEEP THE REST OF YOUR BUTTONS AND HTML CODE DIRECTLY BELOW THIS LINE -->
     <!-- Status/Hover Message Display -->
     <div id="msgs">Select an Exploit Host or Tool below to begin</div>
 
@@ -277,7 +256,7 @@
             <div class="scorp-cat-title">Firmware 9.00 Controls</div>
             <a href="900n/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Auto Manual Exploit Full Cache and Compressed version For 900'">9.00/N AUTO EXPLOIT</a>
             <a href="900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Host Manual Exploit Full Cache and Compressed version For 900'">9.00/C MANUAL EXPLOIT</a>
-            <a href="900a/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='9.00 Arabic Version EXPLOIT (ARABIC)</a>
+            <a href="900a/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='9.00 Arabic Version'">EXPLOIT (ARABIC)</a>
             <br>
             <a href="restore/900/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/N'">9.00/N CACHE TO USER GUIDE</a>
             <a href="restore/900/indexc.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/C'">9.00/C CACHE TO USER GUIDE</a>
@@ -291,3 +270,5 @@
             <a href="trainer/index672.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 672 Ps4 trainer'">6.72 GAME TRAINER</a>
             <a href="trainer/index900.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 900 Ps4 trainer'">9.00 GAME TRAINER</a>
             <br>
+                    </div>
+    </div>
