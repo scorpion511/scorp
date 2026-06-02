@@ -266,12 +266,26 @@
 </div>
 
 <!-- Fixed bottom container to prevent overlapping the footer menus -->
-<div style="margin: 25px 0 10px 0; padding-bottom: 20px; text-align: center; width: 100%; display: block; clear: both;">
+<!-- Native Pure-Text Traffic Counter -->
+<div style="margin: 25px 0 10px 0; padding-bottom: 25px; text-align: center; width: 100%; display: block; clear: both; z-index: 9999;">
     <p style="margin: 0 0 4px 0; font-size: 1.8vh; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 1px;">
         TOTAL SITE VISITS
     </p>
-    <!-- Native counter tracking badge that works directly inside gaming consoles -->
-    <img src="https://vercel.app" alt="Visits Count" style="vertical-align: middle; max-height: 25px;">
+    <span id="scorp-counter-val" style="font-size: 2.5vh; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">Loading...</span>
 </div>
+
+<script>
+    // Fetches the live text metric directly to bypass GitHub's image blocks
+    fetch('https://countapi.xyz')
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById('scorp-counter-val').innerText = data.value;
+    })
+    .catch(err => {
+        // Fallback backup if the temporary tracker API is congested
+        document.getElementById('scorp-counter-val').innerText = "1";
+    });
+</script>
+
 </body>
 </html>
