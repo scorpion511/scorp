@@ -208,14 +208,12 @@
     <!-- Top Status Bar -->
     <span id="date"></span>
     <span id="clock"></span>
-    
-    <!-- FIXED: Unified Top-Left Floating Counter Element directly underneath the date view -->
-    <div style="position: absolute; top: 55px; left: 1.25%; text-align: left; z-index: 10000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-        <span style="font-size: 14px; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL VISITS: </span>
-        <!-- Glowing yellow text with burning black fire multi-layer text shadow -->
-        <span id="scorp-live-text" style="font-size: 18px; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -1px 4px #ffcc00, 1px -3px 8px #ff3300, -1px -6px 12px #000, 0 -10px 18px #000;">0000</span>
-    </div>
-    
+    <!-- Positioned further down the page with a clear background-separating black overlay shadow -->
+<div style="position: absolute; top: 72px; left: 1.25%; text-align: left; z-index: 10000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+    <span style="font-size: 14px; color: #ffffff; font-weight: bold; text-shadow: 0 0 4px #000, 0 0 8px rgba(255, 255, 255, 0.6); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL VISITS: </span>
+    <!-- Glowing yellow text with burning black fire multi-layer text shadow -->
+    <span id="scorp-live-text" style="font-size: 18px; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -1px 4px #ffcc00, 1px -3px 8px #ff3300, -1px -6px 12px #000, 0 -10px 18px #000;">0000</span>
+</div>
     <div style="clear: both;"></div>
 
     <!-- Main Title Wrapped Inside Looping Purple Spark Running Border -->
