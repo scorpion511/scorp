@@ -264,44 +264,42 @@
 <div class="scorp-credits">
     Designed and Compiled By Ahmed Essam
 </div>
+
+<!-- Clean, unified container with Neon Yellow & Black Fire Glow -->
 <div style="margin: 1.5vh 0; text-align: center; width: 100%; position: relative; z-index: 10;">
     <p style="margin: 0 0 0.5vh 0; font-size: 1.8vh; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 1px; text-transform: uppercase;">
         TOTAL SITE VISITS
     </p>
-    <span id="scorp-live-text" style="font-size: 2.5vh; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">0000</span>
+    <!-- Yellow text with multi-layered black and dark-orange shadows for the burning smoke effect -->
+    <span id="scorp-live-text" style="font-size: 2.8vh; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -2px 6px #ffcc00, 2px -4px 10px #ff3300, -2px -8px 16px #000, 0 -12px 22px #000;">0000</span>
 </div>
 
-<!-- Dedicated glow text container for your view count -->
-<div style="font-size: 2.2vh; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); margin-top: 1vh;">
-    SITE VIEWS: <span id="scorp-live-text">Loading...</span>
-</div>
-    <script>
-        // 1. Correct Endpoint Domain: api.counterapi.dev
-        var hostUrl = 'https://api.counterapi.dev';
-        var pathUrl = '/v1/scorpion511/view/up';
-        var fullUrl = hostUrl + pathUrl;
+<script>
+    // 1. Correct Endpoint Domain: api.counterapi.dev
+    var hostUrl = 'https://api.counterapi.dev';
+    var pathUrl = '/v1/scorpion511/view/up';
+    var fullUrl = hostUrl + pathUrl;
 
-        fetch(fullUrl)
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            if(data && data.count) {
-                // Formats numbers with digital padding (e.g., 0042)
-                var countStr = data.count.toString();
-                while(countStr.length < 4) { countStr = "0" + countStr; }
-                
-                // Targets the primary element safely
-                var mainCounter = document.getElementById('scorp-live-text');
-                if (mainCounter) {
-                    mainCounter.innerText = countStr;
-                }
-            }
-        })
-        .catch(function(err) {
-            console.log("Database connection error:", err);
+    fetch(fullUrl)
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        if(data && data.count) {
+            // Formats numbers with digital padding (e.g., 0042)
+            var countStr = data.count.toString();
+            while(countStr.length < 4) { countStr = "0" + countStr; }
+            
+            // Targets the primary element safely
             var mainCounter = document.getElementById('scorp-live-text');
-            if (mainCounter) mainCounter.innerText = "ONLINE";
-        });
-    </script>
+            if (mainCounter) {
+                mainCounter.innerText = countStr;
+            }
+        }
+    })
+    .catch(function(err) {
+        console.log("Database connection error:", err);
+        var mainCounter = document.getElementById('scorp-live-text');
+        if (mainCounter) mainCounter.innerText = "ONLINE";
+    });
+</script>
 </body>
 </html>
-
