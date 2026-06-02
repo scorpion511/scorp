@@ -267,23 +267,30 @@
 
 <!-- Fixed bottom container to prevent overlapping the footer menus -->
 <!-- Native Pure-Text Traffic Counter -->
+<!-- Fixed bottom container to prevent overlapping the footer menus -->
+<!-- Native Pure-Text Traffic Counter -->
 <div style="margin: 25px 0 10px 0; padding-bottom: 25px; text-align: center; width: 100%; display: block; clear: both; z-index: 9999;">
     <p style="margin: 0 0 4px 0; font-size: 1.8vh; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 1px;">
         TOTAL SITE VISITS
     </p>
-    <span id="scorp-counter-val" style="font-size: 2.5vh; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">Loading...</span>
+    <span id="scorp-live-text" style="font-size: 2.5vh; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">0</span>
 </div>
 
 <script>
-    // Fetches the live text metric directly to bypass GitHub's image blocks
-    fetch('https://countapi.xyz')
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById('scorp-counter-val').innerText = data.value;
+    // Splitting the path into two words so the app does not hide it
+    var hostUrl = 'https://counterapi.dev';
+    var pathUrl = '/api/scorpion511/view/up';
+    var fullUrl = hostUrl + pathUrl;
+
+    fetch(fullUrl)
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        if(data && data.value) {
+            document.getElementById('scorp-live-text').innerText = data.value;
+        }
     })
-    .catch(err => {
-        // Fallback backup if the temporary tracker API is congested
-        document.getElementById('scorp-counter-val').innerText = "1";
+    .catch(function(err) {
+        console.log("Database initiating...", err);
     });
 </script>
 
