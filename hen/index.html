@@ -161,18 +161,20 @@
     </div>
 
     <!-- 🟢 FIXED CODE SECTION: Added proper API pathing loops -->
-    <script>
-        fetch('https://counterapi.dev')
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            if(data && data.ayrac) {
-                document.getElementById('scorp-live-text').innerText = data.ayrac;
-            }
-        })
-        .catch(function(err) {
-            console.log("Database initiating...");
-        });
-    </script>
+    <!-- 🟢 FIXED CODE SECTION: Corrected JSON property targeting -->
+<script>
+    fetch('https://counterapi.dev/api/scorpion511/view/up')
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        if(data && data.value) {
+            document.getElementById('scorp-live-text').innerText = data.value;
+        }
+    })
+    .catch(function(err) {
+        console.log("Database initiating...", err);
+    });
+</script>
+
 
 </body>
 </html>
