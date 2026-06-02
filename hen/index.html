@@ -117,7 +117,7 @@
         /* High-End Glowing Credits Style */
         .scorp-credits {
             position: absolute;
-            bottom: 40px;
+            bottom: 20px; /* Moved down slightly to make clean room for the counter */
             left: 50%;
             transform: translateX(-50%);
             font-size: 18px;
@@ -145,14 +145,34 @@
         <a href="672/index.html" class="scorp-btn" onmouseover="document.getElementById('msgs').innerHTML='PS4 Version 6.72 GoldHEN'">FW 6.72</a>
         <a href="900/index.html" class="scorp-btn" onmouseover="document.getElementById('msgs').innerHTML='V18.9 \&quot;Old PsFree Auto NO USB\&quot; 9.00'">FW 9.00 (Old)</a>
         <!-- 🟢 UPDATED: Redirects to your successful GitHub Pages site layout -->
-        <a href="https://scorpion511.github.io/Ahmed.Essam/hen/index.html" class="scorp-btn scorp-new-btn" onmouseover="document.getElementById('msgs').innerHTML='The Latest GOLDHEN Auto 9.00 - PSFree-NO USB V18.10'">FW 9.00 (New)</a>
+        <a href="https://github.io" class="scorp-btn scorp-new-btn" onmouseover="document.getElementById('msgs').innerHTML='The Latest GOLDHEN Auto 9.00 - PSFree-NO USB V18.10'">FW 9.00 (New)</a>
         <a href="restore/index.html" class="scorp-btn scorp-restore-btn" onmouseover="document.getElementById('msgs').innerHTML='Restore User Guide Settings'">Restore</a>
+    </div>
+
+    <!-- Visit counter text container placed cleanly ABOVE your name -->
+    <div style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap;">
+        <span style="font-size: 13px; color: #00ffcc; font-weight: bold; text-shadow: 0 0 5px rgba(0, 255, 204, 0.4); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL HEN VISITS: </span>
+        <span id="scorp-live-text" style="font-size: 15px; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">0</span>
     </div>
 
     <!-- Credit Line Frame -->
     <div class="scorp-credits">
         Designed and Compiled By Ahmed ESSAM
     </div>
+
+    <!-- Background text data api loop -->
+    <script>
+        fetch('https://counterapi.dev')
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            if(data && data.count) {
+                document.getElementById('scorp-live-text').innerText = data.count;
+            }
+        })
+        .catch(function(err) {
+            console.log("Counter skipped.");
+        });
+    </script>
 
 </body>
 </html>
