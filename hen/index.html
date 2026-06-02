@@ -156,14 +156,18 @@
     </div>
 
     <!-- Credit Line Frame -->
+       <!-- Credit Line Frame -->
     <div class="scorp-credits">
         Designed and Compiled By Ahmed ESSAM
     </div>
 
-    <!-- 🟢 FIXED CODE SECTION: Added proper API pathing loops -->
-    <!-- 🟢 FIXED CODE SECTION: Corrected JSON property targeting -->
-<script>
-    fetch('https://counterapi.dev/api/scorpion511/view/up')
+    <script>
+    // Splitting the path into two words so the system never truncates the string
+    var hostUrl = 'https://counterapi.dev';
+    var pathUrl = '/api/scorpion511/view/up';
+    var fullUrl = hostUrl + pathUrl;
+
+    fetch(fullUrl)
     .then(function(res) { return res.json(); })
     .then(function(data) {
         if(data && data.value) {
@@ -174,7 +178,6 @@
         console.log("Database initiating...", err);
     });
 </script>
-
 
 </body>
 </html>
