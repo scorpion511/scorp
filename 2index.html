@@ -209,6 +209,12 @@
     <span id="date"></span>
     <span id="clock"></span>
     
+    <!-- Floating Counter elements safely overlaying the left section underneath the date -->
+    <div style="position: absolute; top: 52px; left: 1.25%; text-align: left; z-index: 9999;">
+        <span style="font-size: 14px; color: #bd00ff; font-weight: bold; text-shadow: 0 0 5px rgba(189, 0, 255, 0.5); letter-spacing: 0.5px;">VISITS: </span>
+        <span id="scorp-live-text" style="font-size: 16px; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">0</span>
+    </div>
+    
     <div style="clear: both;"></div>
 
     <!-- Main Title Wrapped Inside Looping Purple Spark Running Border -->
@@ -217,6 +223,22 @@
             WELCOME TO SCORPION HACK ALL IN 1
         </h1>
     </div>
+
+    <!-- Live text analytic tracking script logic -->
+    <script>
+        fetch('https://counterapi.dev')
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            if(data && data.count) {
+                document.getElementById('scorp-live-text').innerText = data.count;
+            }
+        })
+        .catch(function(err) {
+            console.log("Counter skipped.");
+        });
+    </script>
+
+    <!-- KEEP THE REST OF YOUR BUTTONS AND HTML CODE DIRECTLY BELOW THIS LINE -->
     <!-- Status/Hover Message Display -->
     <div id="msgs">Select an Exploit Host or Tool below to begin</div>
 
