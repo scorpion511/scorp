@@ -226,18 +226,17 @@
 
     <!-- Live text analytic tracking script logic -->
     <script>
-        fetch('https://counterapi.dev')
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            if(data && data.count) {
-                document.getElementById('scorp-live-text').innerText = data.count;
-            }
-        })
-        .catch(function(err) {
-            console.log("Counter skipped.");
-        });
-    </script>
-
+    fetch('https://counterapi.dev/api/scorpion511/view/up')
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        if(data && data.value) {
+            document.getElementById('scorp-live-text').innerText = data.value;
+        }
+    })
+    .catch(function(err) {
+        console.log("Counter skipped.", err);
+    });
+</script>
     <!-- KEEP THE REST OF YOUR BUTTONS AND HTML CODE DIRECTLY BELOW THIS LINE -->
     <!-- Status/Hover Message Display -->
     <div id="msgs">Select an Exploit Host or Tool below to begin</div>
