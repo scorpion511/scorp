@@ -272,3 +272,32 @@
             <br>
                     </div>
     </div>
+        <script>
+        (function() {
+            var hostUrl = 'https://api.counterapi.dev';
+            var pathUrl = '/v1/scorpion511/view/up'; 
+            var fullUrl = hostUrl + pathUrl;
+
+            // Added cache bypass to force the browser to unfreeze from 0000
+            fetch(fullUrl, { cache: 'no-cache' })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if(data && data.count) {
+                    var countStr = data.count.toString();
+                    while(countStr.length < 4) { countStr = "0" + countStr; }
+                    
+                    var mainCounter = document.getElementById('scorp-live-text');
+                    if (mainCounter) {
+                        mainCounter.innerText = countStr;
+                    }
+                }
+            })
+            .catch(function(err) {
+                console.log("Database connection error:", err);
+                var mainCounter = document.getElementById('scorp-live-text');
+                if (mainCounter) mainCounter.innerText = "ONLINE";
+            });
+        })();
+    </script>
+</body>
+</html>
