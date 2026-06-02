@@ -18,23 +18,23 @@
             margin: 0px;
             padding: 0px;
             overflow-x: hidden;
-            overflow-y: auto; 
-            min-height: 100%;
+            /* FIXED: Completely locked scrolling to fix everything on one screen layout */
+            overflow-y: hidden; 
+            height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* UPGRADED: Running Purple Laser Spark Border Container Box Style */
+        /* UPGRADED: Shrunk to clear up major space for your button grid layout grid rows */
         .scorp-header-box {
             position: relative;
-            margin-top: 6vh; /* Pushes the title box down beautifully into clear viewport sight */
-            margin-bottom: 2vh;
-            padding: 12px 30px;
+            margin-top: 1vh;     /* Reduced from 6vh to save top whitespace gap */
+            margin-bottom: 0.5vh; /* Reduced from 2vh */
+            padding: 6px 20px;   /* Thinned outer borders */
             background: rgba(15, 10, 20, 0.85);
             border-radius: 10px;
             display: inline-block;
             overflow: hidden;
             border: 2px solid transparent;
-            /* Looping linear gradient layers handle the purple running spark effect */
             background-image: linear-gradient(rgba(15,10,20,0.9), rgba(15,10,20,0.9)), 
                               linear-gradient(90deg, #bd00ff, #ff007c, transparent, #bd00ff);
             background-origin: border-box;
@@ -44,9 +44,9 @@
             box-shadow: 0 0 15px rgba(189, 0, 255, 0.25);
         }
 
-        /* Vibrant Glowing Purple Font Header Styling */
+        /* Compact Header Sizing */
         .scorp-header {
-            font-size: 3.8vh; 
+            font-size: 3vh; /* Scaled down slightly to maximize button space */
             text-transform: uppercase;
             font-weight: 900;
             letter-spacing: 2px;
@@ -63,9 +63,9 @@
 
         /* High-End Glowing Credits Style */
         .scorp-credits {
-            font-size: 16px;
-            margin-top: 30px;
-            margin-bottom: 25px;
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             font-weight: bold;
             letter-spacing: 1px;
             color: #fff;
@@ -74,24 +74,24 @@
             width: 100%;
         }
 
-        /* Pure CSS Glowing Buttons (Replaces Images) */
+        /* FIXED: Shrunk padding and footprint margins to secure all options on one display panel */
         .scorp-btn {
             display: inline-block;
             text-decoration: none;
             background: rgba(20, 20, 25, 0.85);
             color: #ffffff;
-            font-size: 12px;
+            font-size: 11px;      /* Made text more compact */
             font-weight: bold;
-            letter-spacing: 1px;
-            padding: 10px 20px;
-            margin: 6px;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;    /* Shrunk inner padding height from 10px 20px to 6px 14px */
+            margin: 3px;          /* Brought individual buttons closer together */
             border: 2px solid #ff3300;
             border-radius: 6px;
             box-shadow: 0 0 10px rgba(255, 51, 0, 0.3), inset 0 0 10px rgba(255, 51, 0, 0.2);
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
             transition: all 0.2s ease;
             cursor: pointer;
-            min-width: 180px;
+            min-width: 150px;     /* Set lower baseline layout size bounds */
         }
 
         /* Hover Glow and Shake Animation */
@@ -100,37 +100,37 @@
             color: #fff;
             box-shadow: 0 0 20px #ff3300, 0 0 40px #ff6600;
             text-shadow: 0 0 8px #fff;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             animation: shake 0.5s infinite;
         }
 
         /* Special Colored Categories Headers */
         .scorp-cat-title {
-            font-size: 16px;
+            font-size: 14px;       /* Sleek font reduction */
             font-weight: bold;
             color: #ffcc00;
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin-top: 4px;       /* Tightened category header gap spaces */
+            margin-bottom: 2px;
             text-transform: uppercase;
             text-shadow: 1px 1px 3px black;
             letter-spacing: 1px;
         }
 
         @keyframes shake {
-            0% { transform: translateY(-2px) translateX(0); }
-            20% { transform: translateY(-2px) translateX(-2px); }
-            40% { transform: translateY(-2px) translateX(2px); }
-            60% { transform: translateY(-2px) translateX(-2px); }
-            80% { transform: translateY(-2px) translateX(2px); }
-            100% { transform: translateY(-2px) translateX(0); }
+            0% { transform: translateY(-1px) translateX(0); }
+            20% { transform: translateY(-1px) translateX(-1px); }
+            40% { transform: translateY(-1px) translateX(1px); }
+            60% { transform: translateY(-1px) translateX(-1px); }
+            80% { transform: translateY(-1px) translateX(1px); }
+            100% { transform: translateY(-1px) translateX(0); }
         }
 
         #clock {
             float: right;
             margin-right: 2.25%;
-            margin-top: 15px;
+            margin-top: 5px;       /* Pulled system widgets up closely */
             font-weight: bold;
-            font-size: 28px;
+            font-size: 24px;       /* Slightly cleaner sizing */
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
@@ -139,54 +139,53 @@
             float: left;
             margin-left: 1.25%;
             font-weight: bold;
-            margin-top: 15px;
-            font-size: 28px;
+            margin-top: 5px;
+            font-size: 24px;
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         #msgs {
-            font-size: 20px;
+            font-size: 16px;       /* Adjusted to maximize spacing layout footprint room */
             font-weight: bold;
             color: #ff3300;
-            margin-top: 15px;
-            min-height: 25px;
+            margin-top: 4px;       /* Dropped down layout bounds from 15px to 4px */
+            min-height: 20px;
             text-shadow: 1px 1px 3px black;
         }
 
-        /* VERIFIED INVISIBLE BACKGROUND CONTAINER MODULES */
+        /* FIXED: Pulled structural row wrappers much closer vertically */
         .menu-section {
             background: transparent;
             border-radius: 10px;
-            padding: 12px;
-            margin: 15px auto;
-            max-width: 85%;
+            padding: 2px;          /* Dropped cell padding down from 12px to 2px */
+            margin: 2px auto;      /* Reduced spacing margin footprint gaps from 15px to 2px */
+            max-width: 95%;        /* Expanded row horizontally to catch wrapping links better */
             border: none; 
         }
 
-        /* Master scrolling interface box */
+        /* Master wrapper container sizing */
         .dashboard-scrollbox {
-            max-height: 62vh;
-            overflow-y: auto;
+            max-height: 75vh;      /* Increased frame ceiling room to utilize screen grid spacing */
+            overflow-y: hidden;    /* Replaced auto tracking loop to completely hide the scrollbar */
             margin: 0 auto;
-            padding-bottom: 20px;
+            padding-bottom: 5px;
         }
         
-        /* Smooth Custom Scrollbar for modern feel */
+        /* Smooth Custom Scrollbar styles preserved if fallback occurs */
         .dashboard-scrollbox::-webkit-scrollbar {
-            width: 8px;
+            width: 0px;            /* Turned completely invisible for the full fullscreen layout aesthetic */
         }
         .dashboard-scrollbox::-webkit-scrollbar-track {
             background: rgba(0,0,0,0.3);
             border-radius: 4px;
         }
-        /* UPDATED: Thumb color is changed to purple to blend with header box laser accents */
         .dashboard-scrollbox::-webkit-scrollbar-thumb {
             background: #bd00ff;
             border-radius: 4px;
             box-shadow: 0 0 8px #bd00ff;
         }
-    </style>
+</style>
     <script>
         function showdate() {
             var dt = new Date();
