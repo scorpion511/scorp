@@ -74,32 +74,32 @@
             width: 100%;
         }
 
-        /* FIXED: Shrunk padding and footprint margins to secure all options on one display panel */
+        /* MODIFIED: Electric Cyber Cyan Theme to match your counter text style */
         .scorp-btn {
             display: inline-block;
             text-decoration: none;
-            background: rgba(20, 20, 25, 0.85);
+            background: rgba(10, 15, 20, 0.85); 
             color: #ffffff;
             font-size: 11px;      /* Made text more compact */
             font-weight: bold;
             letter-spacing: 0.5px;
-            padding: 6px 14px;    /* Shrunk inner padding height from 10px 20px to 6px 14px */
+            padding: 6px 14px;    /* Shrunk inner padding height */
             margin: 3px;          /* Brought individual buttons closer together */
-            border: 2px solid #ff3300;
+            border: 2px solid #00f0ff; /* Sharp Cyan border frame lines */
             border-radius: 6px;
-            box-shadow: 0 0 10px rgba(255, 51, 0, 0.3), inset 0 0 10px rgba(255, 51, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1);
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
             transition: all 0.2s ease;
             cursor: pointer;
             min-width: 150px;     /* Set lower baseline layout size bounds */
         }
 
-        /* Hover Glow and Shake Animation */
+        /* MODIFIED HOVER: Instantly flashes into an intense Emerald Matrix Green Glow */
         .scorp-btn:hover {
-            background: #ff3300;
-            color: #fff;
-            box-shadow: 0 0 20px #ff3300, 0 0 40px #ff6600;
-            text-shadow: 0 0 8px #fff;
+            background: #00ff66;  /* Bright emerald green background fill */
+            color: #000000;       /* Dark text for perfect readability on bright green */
+            box-shadow: 0 0 20px #00ff66, 0 0 40px #00ff00; /* Intense green flash glow */
+            text-shadow: none;
             transform: translateY(-1px);
             animation: shake 0.5s infinite;
         }
@@ -148,7 +148,7 @@
         #msgs {
             font-size: 16px;       /* Adjusted to maximize spacing layout footprint room */
             font-weight: bold;
-            color: #ff3300;
+            color: #00ff66;        /* Swapped text center label message color to matching green */
             margin-top: 4px;       /* Dropped down layout bounds from 15px to 4px */
             min-height: 20px;
             text-shadow: 1px 1px 3px black;
