@@ -148,36 +148,41 @@
         <a href="https://scorpion511.github.io/Ahmed.Essam/hen/index.html" class="scorp-btn scorp-new-btn" onmouseover="document.getElementById('msgs').innerHTML='The Latest GOLDHEN Auto 9.00 - PSFree-NO USB V18.10'">FW 9.00 (New)</a>
         <a href="restore/index.html" class="scorp-btn scorp-restore-btn" onmouseover="document.getElementById('msgs').innerHTML='Restore User Guide Settings'">Restore</a>
     </div>
-
-    <!-- Visit counter text container placed cleanly ABOVE your name -->
-    <div style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap;">
-        <span style="font-size: 13px; color: #00ffcc; font-weight: bold; text-shadow: 0 0 5px rgba(0, 255, 204, 0.4); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL HEN VISITS: </span>
-        <span id="scorp-live-text" style="font-size: 15px; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">0</span>
+    <!-- Fixed: Centered at bottom directly over your name with yellow black fire glow -->
+    <div style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap; z-index: 10000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <span style="font-size: 14px; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL VISITS: </span>
+        <span id="scorp-live-text" style="font-size: 18px; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -1px 4px #ffcc00, 1px -3px 8px #ff3300, -1px -6px 12px #000, 0 -10px 18px #000;">0000</span>
     </div>
-
-    <!-- Credit Line Frame -->
        <!-- Credit Line Frame -->
     <div class="scorp-credits">
         Designed and Compiled By Ahmed ESSAM
     </div>
-
     <script>
-    // Splitting the path into two words so the system never truncates the string
-    var hostUrl = 'https://counterapi.dev';
-    var pathUrl = '/api/scorpion511/view/up';
-    var fullUrl = hostUrl + pathUrl;
+        (function() {
+            var hostUrl = 'https://api.counterapi.dev';
+            var pathUrl = '/v1/scorpion511/view/up'; // Connected to your same shared pool
+            var fullUrl = hostUrl + pathUrl;
 
-    fetch(fullUrl)
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-        if(data && data.value) {
-            document.getElementById('scorp-live-text').innerText = data.value;
-        }
-    })
-    .catch(function(err) {
-        console.log("Database initiating...", err);
-    });
-</script>
+            fetch(fullUrl)
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if(data && data.count) {
+                    var countStr = data.count.toString();
+                    while(countStr.length < 4) { countStr = "0" + countStr; }
+                    
+                    var mainCounter = document.getElementById('scorp-live-text');
+                    if (mainCounter) {
+                        mainCounter.innerText = countStr;
+                    }
+                }
+            })
+            .catch(function(err) {
+                console.log("Database connection error:", err);
+                var mainCounter = document.getElementById('scorp-live-text');
+                if (mainCounter) mainCounter.innerText = "ONLINE";
+            });
+        })();
+    </script>
 
 </body>
 </html>
