@@ -201,13 +201,38 @@
             transform: translateY(-1px);
             animation: shake 0.5s infinite;
         }
-        /* INCREASED: Makes the live total visit counter text bigger and sharper */
+/* Layout Container Box for the Counter */
+.scorp-visit-box {
+    position: absolute; 
+    bottom: 55px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: center; 
+    white-space: nowrap; 
+    z-index: 10000;
+}
+
+/* TOTAL VISITS text inside a small green rectangle */
+.scorp-visit-label {
+    font-size: 14px; 
+    color: #00ff66;              /* Matrix Green color */
+    font-weight: bold; 
+    letter-spacing: 0.5px; 
+    text-transform: uppercase;
+    padding: 4px 8px;            /* Inner breathing room for the box */
+    border: 1px solid #00ff66;   /* Small rectangle border lines */
+    border-radius: 4px;          /* Slightly rounded corners for the box */
+    background: rgba(0, 0, 0, 0.4); /* Dark translucent box fill */
+    margin-right: 8px;           /* Space between rectangle and numbers */
+}
+
+/* Large, glowing yellow counter digits */
 #scorp-live-text {
-    font-size: 20px;          /* Increased size so it stands out */
-    font-weight: 900;         /* Extra bold styling */
-    letter-spacing: 2px;      /* Spaced out digits for a digital look */
-    color: #00ffcc;           /* Matches your cyber cyan/green glow theme */
-    text-shadow: 0 0 8px #00ffcc, 0 0 15px rgba(0, 255, 204, 0.5); /* Cyber glow effect */
+    font-size: 24px !important;       /* Increased size so it stands out */
+    font-weight: 900 !important;      /* Extra bold styling */
+    letter-spacing: 2px !important;   /* Spaced out digits for a digital look */
+    color: #ffff00 !important;        /* Crisp yellow numbers */
+    text-shadow: 0 0 8px #ffff00, 0 0 15px rgba(255, 255, 0, 0.5) !important; /* Yellow cyber glow */
 }
 </style>
     <script>
@@ -235,7 +260,9 @@
 <div style="position: absolute; top: 72px; left: 1.25%; text-align: left; z-index: 10000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
     <span style="font-size: 14px; color: #ffffff; font-weight: bold; text-shadow: 0 0 4px #000, 0 0 8px rgba(255, 255, 255, 0.6); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL VISITS: </span>
     <!-- Glowing yellow text with burning black fire multi-layer text shadow -->
-    <span id="scorp-live-text" style="font-size: 18px; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -1px 4px #ffcc00, 1px -3px 8px #ff3300, -1px -6px 12px #000, 0 -10px 18px #000;">0000</span>
+<div class="scorp-visit-box">
+    <span class="scorp-visit-label">TOTAL VISITS</span>
+    <span id="scorp-live-text">0000</span>
 </div>
     <div style="clear: both;"></div>
 
