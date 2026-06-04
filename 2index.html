@@ -75,25 +75,25 @@
         }
 
         /* MODIFIED: Electric Cyber Cyan Theme to match your counter text style */
-        .scorp-btn {
-            display: inline-block;
-            text-decoration: none;
-            background: rgba(10, 15, 20, 0.85); 
-            color: #ffffff;
-            font-size: 11px;      /* Made text more compact */
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            padding: 6px 14px;    /* Shrunk inner padding height */
-            margin: 3px;          /* Brought individual buttons closer together */
-            border: 2px solid #00f0ff; /* Sharp Cyan border frame lines */
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1);
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-            transition: all 0.2s ease;
-            cursor: pointer;
-            min-width: 150px;     /* Set lower baseline layout size bounds */
-        }
-
+        /* MODIFIED: Bigger, Chunky Cyber Cyan Buttons */
+.scorp-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: rgba(10, 15, 20, 0.85); 
+    color: #ffffff;
+    font-size: 15px;           /* INCREASED: From 11px to 15px for great readability */
+    font-weight: bold;
+    letter-spacing: 1px;       /* INCREASED: Spaced out letters for a cleaner UI look */
+    padding: 12px 24px;        /* INCREASED: From 6px 14px to give buttons a thick, premium feel */
+    margin: 6px;               /* INCREASED: From 3px so big buttons don't clip into each other */
+    border: 2px solid #00f0ff; 
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-width: 180px;          /* INCREASED: From 150px so text won't cramp up */
+}
         /* MODIFIED HOVER: Instantly flashes into an intense Emerald Matrix Green Glow */
         .scorp-btn:hover {
             background: #00ff66;  /* Bright emerald green background fill */
@@ -201,6 +201,14 @@
             transform: translateY(-1px);
             animation: shake 0.5s infinite;
         }
+        /* INCREASED: Makes the live total visit counter text bigger and sharper */
+#scorp-live-text {
+    font-size: 20px;          /* Increased size so it stands out */
+    font-weight: 900;         /* Extra bold styling */
+    letter-spacing: 2px;      /* Spaced out digits for a digital look */
+    color: #00ffcc;           /* Matches your cyber cyan/green glow theme */
+    text-shadow: 0 0 8px #00ffcc, 0 0 15px rgba(0, 255, 204, 0.5); /* Cyber glow effect */
+}
 </style>
     <script>
         function showdate() {
