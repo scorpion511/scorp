@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# TheSCORPION HOST (06/05/2026 - GH 18.10 Pure Payload Stable)
+# The SCORP Host GoldHen v18.8 ( 08/24/2026)
 
 about.html
 aio_patches.bin
@@ -7,35 +7,35 @@ alert.mjs
 cache.html
 config.mjs
 COPYING
+goldhen.bin
 img.jpg
 index.html
 lapse.mjs
 LICENSE
-payload.js
 psfree.mjs
 psfree_lapse.cache
 README.md
 send.mjs
-AIO_Fix_Temp/patch_aio.c
-AIO_Fix_Temp/vfs_aio2_pdtor.c
-fonts/FONTS.LICENSE
-fonts/LiberationMono-Regular.ttf
-fonts/README.txt
-kpatch/900.c
-kpatch/900.d
-kpatch/900.elf
-kpatch/900.o
-kpatch/Makefile
-kpatch/script.ld
-kpatch/types.h
-kpatch/utils.h
-module/chain.mjs
-module/constants.mjs
-module/int64.mjs
-module/mem.mjs
-module/memtools.mjs
-module/offset.mjs
-module/rw.mjs
-module/utils.mjs
-module/view.mjs
-rop/900.mjs
+AIO_Fix_Temp\patch_aio.c
+AIO_Fix_Temp\vfs_aio2_pdtor.c
+fonts\FONTS.LICENSE
+fonts\LiberationMono-Regular.ttf
+fonts\README.txt
+kpatch\900.c
+kpatch\900.d
+kpatch\900.elf
+kpatch\900.o
+kpatch\Makefile
+kpatch\script.ld
+kpatch\types.h
+kpatch\utils.h
+module\chain.mjs
+module\constants.mjs
+module\int64.mjs
+module\mem.mjs
+module\memtools.mjs
+module\offset.mjs
+module\rw.mjs
+module\utils.mjs
+module\view.mjs
+rop\900.mjs
