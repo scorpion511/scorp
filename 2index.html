@@ -233,12 +233,16 @@
         }
 
         /* Large, glowing digital yellow counter numbers */
+               /* Large, razor-sharp glowing yellow counter digits */
         #scorp-live-text {
             font-size: 24px !important;       
             font-weight: 900 !important;      
             letter-spacing: 2px !important;   
-            color: #ffff00 !important;        /* Deep digital yellow numbers */
-            text-shadow: 0 0 8px #ffff00, 0 0 15px rgba(255, 255, 0, 0.6) !important; 
+            color: #ffff00 !important;        /* Pure hot yellow fill */
+            /* MULTI-LAYER COMPACT GLOW: Strips the blurry cloud and adds a sharp border */
+            text-shadow: 0 0 2px #000000, 
+                         0 0 4px #ffff00, 
+                         0 0 8px #ffaa00 !important; 
         }
 </style>
     <script>
