@@ -186,61 +186,59 @@
             box-shadow: 0 0 8px #bd00ff;
         }
                 /* SPECIAL CLASS: Golden/Amber Style for the most important button */
-        .scorp-goldhen-btn {
-            border-color: #ffaa00 !important; /* Premium Amber Gold border */
-            box-shadow: 0 0 15px rgba(255, 170, 0, 0.4), inset 0 0 10px rgba(255, 170, 0, 0.1) !important;
-            color: #ffffff !important;
-        }
-
-        /* GOLDEN HOVER: Explodes into a bright flaming gold matrix burst */
                 /* GOLDEN HOVER: Explodes into a bright flaming gold matrix burst */
         .scorp-goldhen-btn:hover {
-            background: #ffaa00 !important;   /* Solid gold background fill */
-            color: #000000 !important;        /* Dark text for perfect contrast */
-            box-shadow: 0 0 25px #ffaa00, 0 0 50px #ff5500 !important; /* Gold to fire-orange light blast */
+            background: #ffaa00 !important;   
+            color: #000000 !important;        
+            box-shadow: 0 0 25px #ffaa00, 0 0 50px #ff5500 !important; 
             text-shadow: none !important;
             transform: translateY(-1px);
             animation: shake 0.5s infinite;
         }
 
-        /* FIXES THE SHIFT: Forces all your rows and buttons to stay perfectly centered */
+        /* 🟢 MOVES ALL YOUR BUTTONS TO THE DEAD MIDDLE OF THE PAGE */
         .menu-section {
-            text-align: center !important;
-            display: block !important;
+            background: transparent;
+            border-radius: 10px;
+            padding: 2px;          
+            margin: 10px auto !important; /* Centers the whole container block */
+            max-width: 95%;        
+            border: none; 
+            text-align: center !important; /* Locks all internal layout buttons dead center */
         }
 
-        /* Layout Container Box for the Counter */
+        /* 🟢 LAYOUT DESIGN: Green rectangle box with big yellow glowing numbers pinned to bottom middle */
         .scorp-visit-box {
-            position: absolute; 
-            bottom: 55px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            text-align: center; 
-            white-space: nowrap; 
-            z-index: 10000;
+            position: absolute !important; 
+            bottom: 30px !important;      /* Balanced distance right above the home bar */
+            left: 50% !important; 
+            transform: translateX(-50%) !important; 
+            text-align: center !important; 
+            white-space: nowrap !important; 
+            z-index: 10000 !important;
         }
 
-        /* TOTAL VISITS text inside a small green rectangle */
+        /* TOTAL VISITS green rectangle style box container */
         .scorp-visit-label {
-            font-size: 14px; 
-            color: #00ff66;              /* Matrix Green color */
-            font-weight: bold; 
-            letter-spacing: 0.5px; 
-            text-transform: uppercase;
-            padding: 4px 8px;            /* Inner breathing room for the box */
-            border: 1px solid #00ff66;   /* Small rectangle border lines */
-            border-radius: 4px;          /* Slightly rounded corners for the box */
-            background: rgba(0, 0, 0, 0.4); /* Dark translucent box fill */
-            margin-right: 8px;           /* Space between rectangle and numbers */
+            font-size: 14px !important; 
+            color: #00ff66 !important;              /* Matrix Green */
+            font-weight: bold !important; 
+            letter-spacing: 0.5px !important; 
+            text-transform: uppercase !important;
+            padding: 4px 8px !important;            /* Inner rectangle room */
+            border: 1px solid #00ff66 !important;   /* Small rectangle border lines */
+            border-radius: 4px !important;          
+            background: rgba(0, 0, 0, 0.5) !important; 
+            margin-right: 8px !important;           
         }
 
-        /* Large, glowing yellow counter digits */
+        /* Large, glowing digital yellow counter numbers */
         #scorp-live-text {
-            font-size: 24px !important;       /* Increased size so it stands out */
-            font-weight: 900 !important;      /* Extra bold styling */
-            letter-spacing: 2px !important;   /* Spaced out digits for a digital look */
-            color: #ffff00 !important;        /* Crisp yellow numbers */
-            text-shadow: 0 0 8px #ffff00, 0 0 15px rgba(255, 255, 0, 0.5) !important; /* Yellow cyber glow */
+            font-size: 24px !important;       
+            font-weight: 900 !important;      
+            letter-spacing: 2px !important;   
+            color: #ffff00 !important;        /* Deep digital yellow numbers */
+            text-shadow: 0 0 8px #ffff00, 0 0 15px rgba(255, 255, 0, 0.6) !important; 
         }
 </style>
     <script>
@@ -265,9 +263,7 @@
     <span id="date"></span>
     <span id="clock"></span>
     <!-- Positioned further down the page with a clear background-separating black overlay shadow -->
-<div style="position: absolute; top: 72px; left: 1.25%; text-align: left; z-index: 10000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
-    <span style="font-size: 14px; color: #ffffff; font-weight: bold; text-shadow: 0 0 4px #000, 0 0 8px rgba(255, 255, 255, 0.6); letter-spacing: 0.5px; text-transform: uppercase;">TOTAL VISITS: </span>
-    <!-- Glowing yellow text with burning black fire multi-layer text shadow -->
+
 <div class="scorp-visit-box">
     <span class="scorp-visit-label">TOTAL VISITS</span>
     <span id="scorp-live-text">0000</span>
