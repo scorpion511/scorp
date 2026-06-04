@@ -193,6 +193,7 @@
         }
 
         /* GOLDEN HOVER: Explodes into a bright flaming gold matrix burst */
+                /* GOLDEN HOVER: Explodes into a bright flaming gold matrix burst */
         .scorp-goldhen-btn:hover {
             background: #ffaa00 !important;   /* Solid gold background fill */
             color: #000000 !important;        /* Dark text for perfect contrast */
@@ -201,39 +202,46 @@
             transform: translateY(-1px);
             animation: shake 0.5s infinite;
         }
-/* Layout Container Box for the Counter */
-.scorp-visit-box {
-    position: absolute; 
-    bottom: 55px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    text-align: center; 
-    white-space: nowrap; 
-    z-index: 10000;
-}
 
-/* TOTAL VISITS text inside a small green rectangle */
-.scorp-visit-label {
-    font-size: 14px; 
-    color: #00ff66;              /* Matrix Green color */
-    font-weight: bold; 
-    letter-spacing: 0.5px; 
-    text-transform: uppercase;
-    padding: 4px 8px;            /* Inner breathing room for the box */
-    border: 1px solid #00ff66;   /* Small rectangle border lines */
-    border-radius: 4px;          /* Slightly rounded corners for the box */
-    background: rgba(0, 0, 0, 0.4); /* Dark translucent box fill */
-    margin-right: 8px;           /* Space between rectangle and numbers */
-}
+        /* FIXES THE SHIFT: Forces all your rows and buttons to stay perfectly centered */
+        .menu-section {
+            text-align: center !important;
+            display: block !important;
+        }
 
-/* Large, glowing yellow counter digits */
-#scorp-live-text {
-    font-size: 24px !important;       /* Increased size so it stands out */
-    font-weight: 900 !important;      /* Extra bold styling */
-    letter-spacing: 2px !important;   /* Spaced out digits for a digital look */
-    color: #ffff00 !important;        /* Crisp yellow numbers */
-    text-shadow: 0 0 8px #ffff00, 0 0 15px rgba(255, 255, 0, 0.5) !important; /* Yellow cyber glow */
-}
+        /* Layout Container Box for the Counter */
+        .scorp-visit-box {
+            position: absolute; 
+            bottom: 55px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            text-align: center; 
+            white-space: nowrap; 
+            z-index: 10000;
+        }
+
+        /* TOTAL VISITS text inside a small green rectangle */
+        .scorp-visit-label {
+            font-size: 14px; 
+            color: #00ff66;              /* Matrix Green color */
+            font-weight: bold; 
+            letter-spacing: 0.5px; 
+            text-transform: uppercase;
+            padding: 4px 8px;            /* Inner breathing room for the box */
+            border: 1px solid #00ff66;   /* Small rectangle border lines */
+            border-radius: 4px;          /* Slightly rounded corners for the box */
+            background: rgba(0, 0, 0, 0.4); /* Dark translucent box fill */
+            margin-right: 8px;           /* Space between rectangle and numbers */
+        }
+
+        /* Large, glowing yellow counter digits */
+        #scorp-live-text {
+            font-size: 24px !important;       /* Increased size so it stands out */
+            font-weight: 900 !important;      /* Extra bold styling */
+            letter-spacing: 2px !important;   /* Spaced out digits for a digital look */
+            color: #ffff00 !important;        /* Crisp yellow numbers */
+            text-shadow: 0 0 8px #ffff00, 0 0 15px rgba(255, 255, 0, 0.5) !important; /* Yellow cyber glow */
+        }
 </style>
     <script>
         function showdate() {
