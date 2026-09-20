@@ -329,21 +329,22 @@
                     </div>
     </div>
                             <!-- Clean JavaScript Library Import for CounterAPI v2 -->
+        <!-- Clean JavaScript Library Import for CounterAPI v2 -->
     <script type="module">
-        import { Counter } from 'https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js';
+        import { Counter } from 'https://jsdelivr.net';
 
-        // Establishes a verified secure connection straight to your active workspace username
+        // Securely logs into your team workspace account using your default dashboard public key
         const counter = new Counter({
-            workspace: 'scorpion511'
+            workspace: 'scorpion511s-team',
+            apiKey: 'ut_YtrojkMWg4YDkqfco51uTl7WN8uVTR3c6JK2Bvdv'
         });
 
-        // Safe frontend increment connection hook
+        // Tracks the unique API slug counter item registered on your active dashboard panel
         counter.up('first-counter-5601')
             .then(result => {
-                // Formats the live metric response
                 let countStr = result.value.toString();
                 
-                // Keeps your clean 4-digit system layout aesthetic look (0000)
+                // Pad zeros to keep your clean 4-digit system menu layout theme (0000)
                 while (countStr.length < 4) { 
                     countStr = "0" + countStr; 
                 }
@@ -354,7 +355,7 @@
                 }
             })
             .catch(error => {
-                console.error('Counter API Error Trace:', error.message);
+                console.error('Counter API Live Hook Error:', error.message);
                 const mainCounter = document.getElementById('scorp-live-text');
                 if (mainCounter) {
                     mainCounter.innerText = "ONLINE";
@@ -363,7 +364,7 @@
     </script>
 
     <script>
-        // System clock logic for your menu header layout widgets
+        // System clock logic for your top header design layout panels
         function updateTime() {
             var now = new Date();
             var hours = now.getHours().toString().padStart(2, '0');
