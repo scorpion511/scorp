@@ -328,31 +328,30 @@
             <br>
                     </div>
     </div>
-            <script>
+                <script>
         (function() {
-            // Secure Public V2 API coordinates for your scorpion511s-team workspace
             var protocol = 'https:';
             var host = 'api.counterapi.dev';
             var version = 'v2';
-            var teamWorkspace = 'scorpion511s-team';
-            var counterName = 'first-counter';
-            // Compiles into a clean public hit request: https://counterapi.dev
-            var fullUrl = protocol + '//' + host + '/' + version + '/' + teamWorkspace + '/' + counterName + '/increment';
+            var teamWorkspace = 'scorpion511s-team'; 
+            var counterName = 'first-counter';               
+
+            // Compiles into the official endpoint: https://counterapi.dev
+            var fullUrl = protocol + '//' + host + '/' + version + '/' + teamWorkspace + '/' + counterName + '/up';
 
             var xhr = new XMLHttpRequest();
-            // POST dynamically increments your metric count by 1 on every page load
-            xhr.open('POST', fullUrl, true);
+            // Official V2 counts are registered using a GET request
+            xhr.open('GET', fullUrl, true);
             
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     try {
                         var response = JSON.parse(xhr.responseText);
                         
-                        // Safely extracts the total metrics out of the V2 array data block
-                        if (response && response.data && response.data.count !== undefined) {
-                            var countStr = response.data.count.toString();
+                        // Extracts the live number using the official v2 'up_count' key
+                        if (response && response.data && response.data.up_count !== undefined) {
+                            var countStr = response.data.up_count.toString();
                             
-                            // Keeps your 4-digit layout aesthetic look intact (0000)
                             while (countStr.length < 4) { 
                                 countStr = "0" + countStr; 
                             }
@@ -386,7 +385,7 @@
             xhr.send();
         })();
 
-        // System widget updates for your top header clocks
+        // System clock logic
         function updateTime() {
             var now = new Date();
             var hours = now.getHours().toString().padStart(2, '0');
