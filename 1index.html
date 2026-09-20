@@ -274,56 +274,62 @@
     <span id="scorp-live-text" style="font-size: 2.8vh; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -2px 6px #ffcc00, 2px -4px 10px #ff3300, -2px -8px 16px #000, 0 -12px 22px #000;">0000</span>
 </div>
 <!-- Safe Built V2 Counter Script Configuration -->
-<script>
-    (function() {
-                       var part1 = 'https://';
-        var part2 = 'api.counterapi';
-        var part3 = '.dev/v2/';
-        var part4 = 'scorpion511';
-        var part5 = '/up/up';
-        
-        var fullUrl = part1 + part2 + part3 + part4 + part5;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', fullUrl, true);
-        
-        xhr.onload = function() {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                try {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response && response.data && response.data.count !== undefined) {
-                        var countStr = response.data.count.toString();
-                        while (countStr.length < 4) { 
-                            countStr = "0" + countStr; 
+    <!-- Safe Built V2 Counter Script Configuration -->
+    <script>
+        (function() {
+            var part1 = 'https://';
+            var part2 = 'api.counterapi';
+            var part3 = '.dev/v2/';
+            var part4 = 'scorpion511';
+            var part5 = '/up/up';
+            
+            var fullUrl = part1 + part2 + part3 + part4 + part5;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', fullUrl, true);
+            
+            // 🔑 WRITE YOUR API KEY TOKEN ON THE LINE BELOW
+            xhr.setRequestHeader('Authorization', 'Bearer ut_YtrojkMWg4YDkqfco51uTl7WN8uVTR3c6JK2Bvdv');
+            
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response && response.data && response.data.count !== undefined) {
+                            var countStr = response.data.count.toString();
+                            while (countStr.length < 4) { 
+                                countStr = "0" + countStr; 
+                            }
+                            var mainCounter = document.getElementById('scorp-live-text');
+                            if (mainCounter) {
+                                mainCounter.innerText = countStr;
+                            }
+                        } else {
+                            handleFallback();
                         }
-                        var mainCounter = document.getElementById('scorp-live-text');
-                        if (mainCounter) {
-                            mainCounter.innerText = countStr;
-                        }
-                    } else {
+                    } catch (e) {
                         handleFallback();
                     }
-                } catch (e) {
+                } else {
                     handleFallback();
                 }
-            } else {
+            };
+
+            xhr.onerror = function() {
                 handleFallback();
+            };
+
+            function handleFallback() {
+                var mainCounter = document.getElementById('scorp-live-text');
+                if (mainCounter) {
+                    mainCounter.innerText = "ONLINE";
+                }
             }
-        };
 
-        xhr.onerror = function() {
-            handleFallback();
-        };
+            xhr.send();
+        })();
+    </script>
 
-        function handleFallback() {
-            var mainCounter = document.getElementById('scorp-live-text');
-            if (mainCounter) {
-                mainCounter.innerText = "ONLINE";
-            }
-        }
-
-        xhr.send();
-    })();
-</script>
 
 </body>
 </html>
