@@ -330,28 +330,33 @@
     </div>
                             <!-- Clean JavaScript Library Import for CounterAPI v2 -->
         <!-- Clean JavaScript Library Import for CounterAPI v2 -->
-            <script>
+               <script>
         (function() {
-            // Visible variables matching your exact active dashboard settings
-            var team = 'scorpion511s-team';
-            var slug = 'first-counter-5601';
+            var scheme = 'https:';
+            var domain = 'api.counterapi.dev';
+            var version = 'v2';
+            var workspace = 'scorpion511s-team';
+            var counter = 'first-counter-5601';
+            var action = 'up';
 
-            // Compiles cleanly without hiding text strings
-            var fullUrl = 'https://counterapi.dev' + team + '/' + slug + '/up';
+            // Stacked in short rows so nothing cuts off horizontally
+            var path = scheme + '//' + domain + '/';
+            path = path + version + '/';
+            path = path + workspace + '/';
+            path = path + counter + '/';
+            path = path + action;
 
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', fullUrl, true);
+            xhr.open('GET', path, true);
             
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     try {
                         var response = JSON.parse(xhr.responseText);
                         
-                        // Extracts the live data point cleanly out of the CounterAPI payload array
                         if (response && response.data && response.data.up_count !== undefined) {
                             var countStr = response.data.up_count.toString();
                             
-                            // Pad zeros to keep your sharp 4-digit system menu design (0000)
                             while (countStr.length < 4) { 
                                 countStr = "0" + countStr; 
                             }
