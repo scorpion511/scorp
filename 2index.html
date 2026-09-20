@@ -328,62 +328,41 @@
             <br>
                     </div>
     </div>
-                        <script>
-        (function() {
-            var protocol = 'https:';
-            var host = 'api.counterapi.dev';
-            var version = 'v2';
-            var workspaceName = 'scorpion511'; 
-            var counterName = 'first-counter-5601'; // Matches your real API Slug perfectly
-            var fullUrl = protocol + '//' + host + '/' + version + '/' + workspaceName + '/' + counterName + '/up';
+                            <!-- Clean JavaScript Library Import for CounterAPI v2 -->
+    <script type="module">
+        import { Counter } from 'https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js';
 
-            // Public front-end hits are securely tracked using a standard GET request without exposing master keys
-            fetch(fullUrl, { method: 'GET' })
-            .then(function(response) {
-                if (!response.ok) {
-                    throw new Error('HTTP Status: ' + response.status);
-                }
-                return response.json();
-            })
-            .then(function(responseObj) {
-                var liveCount = null;
-                if (responseObj && responseObj.data) {
-                    if (responseObj.data.up_count !== undefined) {
-                        liveCount = responseObj.data.up_count;
-                    } else if (responseObj.data.count !== undefined) {
-                        liveCount = responseObj.data.count;
-                    }
-                }
+        // Establishes a verified secure connection straight to your active workspace username
+        const counter = new Counter({
+            workspace: 'scorpion511'
+        });
 
-                if (liveCount !== null) {
-                    var countStr = liveCount.toString();
-                    
-                    // Pad zeros to keep your clean 4-digit layout look (0000)
-                    while (countStr.length < 4) { 
-                        countStr = "0" + countStr; 
-                    }
-                    
-                    var mainCounter = document.getElementById('scorp-live-text');
-                    if (mainCounter) {
-                        mainCounter.innerText = countStr;
-                    }
-                } else {
-                    handleFallback();
+        // Safe frontend increment connection hook
+        counter.up('first-counter-5601')
+            .then(result => {
+                // Formats the live metric response
+                let countStr = result.value.toString();
+                
+                // Keeps your clean 4-digit system layout aesthetic look (0000)
+                while (countStr.length < 4) { 
+                    countStr = "0" + countStr; 
+                }
+                
+                const mainCounter = document.getElementById('scorp-live-text');
+                if (mainCounter) {
+                    mainCounter.innerText = countStr;
                 }
             })
-            .catch(function(error) {
-                console.error('Counter trace error:', error);
-                handleFallback();
-            });
-
-            function handleFallback() {
-                var mainCounter = document.getElementById('scorp-live-text');
+            .catch(error => {
+                console.error('Counter API Error Trace:', error.message);
+                const mainCounter = document.getElementById('scorp-live-text');
                 if (mainCounter) {
                     mainCounter.innerText = "ONLINE";
                 }
-            }
-        })();
+            });
+    </script>
 
+    <script>
         // System clock logic for your menu header layout widgets
         function updateTime() {
             var now = new Date();
