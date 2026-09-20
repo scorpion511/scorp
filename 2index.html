@@ -330,79 +330,60 @@
     </div>
                             <!-- Clean JavaScript Library Import for CounterAPI v2 -->
         <!-- Clean JavaScript Library Import for CounterAPI v2 -->
-               <script>
-        (function() {
-            var scheme = 'https:';
-            var domain = 'api.counterapi.dev';
-            var version = 'v2';
-            var workspace = 'scorpion511s-team';
-            var counter = 'first-counter-5601';
-            var action = 'up';
+              <script>
+(function(){
+  var s = 'https:';
+  var d = 'api.counterapi.dev';
+  var v = 'v2';
+  var w = 'scorpion511s-team';
+  var c = 'first-counter-5601';
+  var a = 'up';
 
-            // Stacked in short rows so nothing cuts off horizontally
-            var path = scheme + '//' + domain + '/';
-            path = path + version + '/';
-            path = path + workspace + '/';
-            path = path + counter + '/';
-            path = path + action;
+  var p = s + '//' + d + '/';
+  p = p + v + '/';
+  p = p + w + '/';
+  p = p + c + '/';
+  p = p + a;
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', path, true);
-            
-            xhr.onload = function() {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    try {
-                        var response = JSON.parse(xhr.responseText);
-                        
-                        if (response && response.data && response.data.up_count !== undefined) {
-                            var countStr = response.data.up_count.toString();
-                            
-                            while (countStr.length < 4) { 
-                                countStr = "0" + countStr; 
-                            }
-                            
-                            var mainCounter = document.getElementById('scorp-live-text');
-                            if (mainCounter) {
-                                mainCounter.innerText = countStr;
-                            }
-                        } else {
-                            handleFallback();
-                        }
-                    } catch (e) {
-                        handleFallback();
-                    }
-                } else {
-                    handleFallback();
-                }
-            };
+  var x = new XMLHttpRequest();
+  x.open('GET', p, true);
+  
+  x.onload = function() {
+    if (x.status >= 200 && x.status < 300) {
+      try {
+        var r = JSON.parse(x.responseText);
+        if (r && r.data && r.data.up_count !== undefined) {
+          var str = r.data.up_count.toString();
+          while (str.length < 4) { 
+            str = "0" + str; 
+          }
+          var m = document.getElementById('scorp-live-text');
+          if (m) { m.innerText = str; }
+        } else { f(); }
+      } catch (e) { f(); }
+    } else { f(); }
+  };
 
-            xhr.onerror = function() {
-                handleFallback();
-            };
+  x.onerror = function() { f(); };
+  function f() {
+    var m = document.getElementById('scorp-live-text');
+    if (m) { m.innerText = "0000"; }
+  }
+  x.send();
+})();
 
-            function handleFallback() {
-                var mainCounter = document.getElementById('scorp-live-text');
-                if (mainCounter) {
-                    mainCounter.innerText = "0000";
-                }
-            }
-
-            xhr.send();
-        })();
-
-        // System clock logic for your top header design layout panels
-        function updateTime() {
-            var now = new Date();
-            var hours = now.getHours().toString().padStart(2, '0');
-            var minutes = now.getMinutes().toString().padStart(2, '0');
-            var clockEl = document.getElementById('clock');
-            if(clockEl) clockEl.innerText = hours + ':' + minutes;
-            
-            var dateEl = document.getElementById('date');
-            if(dateEl) dateEl.innerText = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
-    </script>
+function updateTime() {
+  var now = new Date();
+  var h = now.getHours().toString().padStart(2, '0');
+  var min = now.getMinutes().toString().padStart(2, '0');
+  var cl = document.getElementById('clock');
+  if(cl) cl.innerText = h + ':' + min;
+  
+  var dt = document.getElementById('date');
+  if(dt) dt.innerText = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
 </body>
 </html>
