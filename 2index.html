@@ -259,36 +259,102 @@
             document.getElementById("clock").innerHTML = (Hour + ":" + Minute);
         }
         setInterval(showdate, 1000);
-            <script>
-        (function() {
-            // Correct URL variables matching your dashboard setup
-            var protocol = 'https:';
-            var host = 'api.counterapi.dev';
-            var version = 'v2';
-            var teamWorkspace = 'scorpion511s-team'; // Your dashboard team slug
-            var counterName = 'up';               // Your counter name
+    </script>
+</head>
+<body onload="showdate()">
 
-            // This perfectly joins everything together with the proper slashes!
-            var fullUrl = protocol + '//' + host + '/' + version + '/' + teamWorkspace + '/' + counterName + '/increment';
+    <!-- Top Status Bar -->
+    <span id="date"></span>
+    <span id="clock"></span>
+    <!-- Positioned further down the page with a clear background-separating black overlay shadow -->
+
+<div class="scorp-visit-box">
+    <span class="scorp-visit-label">TOTAL VISITS</span>
+    <span id="scorp-live-text">0000</span>
+</div>
+    <div style="clear: both;"></div>
+
+    <!-- Main Title Wrapped Inside Looping Purple Spark Running Border -->
+    <div class="scorp-header-box">
+        <h1 class="scorp-header">
+            WELCOME TO SCORPION HACK ALL IN 1
+        </h1>
+    </div>
+    <!-- Status/Hover Message Display -->
+    <div id="msgs">Select an Exploit Host or Tool below to begin</div>
+
+    <!-- MAIN SCROLLABLE CONTAINER FRAMEWORK -->
+    <div class="dashboard-scrollbox">
+        
+        <!-- SECTION 1: MAIN HUBS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Main Hub Selections</div>
+            <a href="hen/index.html" class="scorp-btn scorp-goldhen-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device gold hen 5.05 / 6.72 / 9.00'">GOLDHEN SELECTION</a>
+            <a href="1index.html" class="scorp-btn" style="border-color: #00ffcc;" onMouseOver="document.getElementById('msgs').innerHTML='Return to Device Selection Page'">← BACK TO HOME</a>
+        </div>
+
+        <!-- SECTION 2: 5.05 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 5.05 Controls</div>
+            <a href="505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 5.05 Exploit Menu'">5.05 EXPLOIT</a>
+            <a href="restore/505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 5.05'">5.05 CACHE TO USER GUIDE</a>
+        </div>
+
+        <!-- SECTION 3: 6.72 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 6.72 Controls</div>
+            <a href="672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 6.72 Exploit Menu'">6.72 EXPLOIT</a>
+            <a href="restore/672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 6.72'">6.72 CACHE TO USER GUIDE</a>
+        </div>
+
+        <!-- SECTION 4: 9.00 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 9.00 Controls</div>
+            <a href="900n/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Auto Manual Exploit Full Cache and Compressed version For 900'">9.00/N AUTO EXPLOIT</a>
+            <a href="900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Host Manual Exploit Full Cache and Compressed version For 900'">9.00/C MANUAL EXPLOIT</a>
+            <a href="900a/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='9.00 Arabic Version'">EXPLOIT (ARABIC)</a>
+            <br>
+            <a href="restore/900/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/N'">9.00/N CACHE TO USER GUIDE</a>
+            <a href="restore/900/indexc.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/C'">9.00/C CACHE TO USER GUIDE</a>
+            <a href="restore/900/indexa.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Arabic Version'">9.00 CACHE USER GUIDE (ARABIC)</a>
+        </div>
+
+        <!-- SECTION 5: TRAINERS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">PS4 Game Trainers</div>
+            <a href="https://kmeps4.site/trainer/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 505 Ps4 trainer'">5.05 GAME TRAINER</a>
+            <a href="https://kmeps4.site/trainer/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 672 Ps4 trainer'">6.72 GAME TRAINER</a>
+            <a href="https://kmeps4.site/trainer/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp page device version 900 Ps4 trainer'">9.00 GAME TRAINER</a>
+            <br>
+                    </div>
+    </div>
+        <script>
+        (function() {
+            var part1 = 'https://';
+            var part2 = 'api.counterapi';
+            var part3 = '.dev/v2/';
+            var part4 = 'scorpion511';
+            var part5 = '/up/up';
+            
+            var fullUrl = part1 + part2 + part3 + part4 + part5;
 
             var xhr = new XMLHttpRequest();
-            // POST dynamically registers the visit and updates your dashboard database
-            xhr.open('POST', fullUrl, true);
+            xhr.open('GET', fullUrl, true);
+            
+            // 🔑 WRITE YOUR API KEY TOKEN ON THE LINE BELOW
+            xhr.setRequestHeader('Authorization', 'Bearer ut_YtrojkMWg4YDkqfco51uTl7WN8uVTR3c6JK2Bvdv');
             
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     try {
                         var response = JSON.parse(xhr.responseText);
                         
-                        // Grabs the live number from the CounterAPI v2 response data
-                        if (response && response.data && response.data.count !== undefined) {
-                            var countStr = response.data.count.toString();
-                            
-                            // Pad zeros to keep your 4-digit layout look (0000)
+                        // 🟢 FIXED: Changed from .count to .up_count for V2 API compatibility
+                        if (response && response.data && response.data.up_count !== undefined) {
+                            var countStr = response.data.up_count.toString();
                             while (countStr.length < 4) { 
                                 countStr = "0" + countStr; 
                             }
-                            
                             var mainCounter = document.getElementById('scorp-live-text');
                             if (mainCounter) {
                                 mainCounter.innerText = countStr;
