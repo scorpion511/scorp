@@ -328,19 +328,20 @@
             <br>
                     </div>
     </div>
-                <script>
+                    <script>
         (function() {
             var protocol = 'https:';
             var host = 'api.counterapi.dev';
             var version = 'v2';
-            var teamWorkspace = 'scorpion511s-team'; 
-            var counterName = 'first-counter';               
+            
+            // CHANGED: Using your official workspace identifier slug instead of the team name
+            var workspaceName = 'scorpion511'; 
+            var counterName = 'first-counter'; // Matches your dashboard counter name exactly
 
-            // Compiles into the official endpoint: https://counterapi.dev
-            var fullUrl = protocol + '//' + host + '/' + version + '/' + teamWorkspace + '/' + counterName + '/up';
+            // Builds the perfect live URL endpoint path
+            var fullUrl = protocol + '//' + host + '/' + version + '/' + workspaceName + '/' + counterName + '/up';
 
             var xhr = new XMLHttpRequest();
-            // Official V2 counts are registered using a GET request
             xhr.open('GET', fullUrl, true);
             
             xhr.onload = function() {
@@ -348,10 +349,20 @@
                     try {
                         var response = JSON.parse(xhr.responseText);
                         
-                        // Extracts the live number using the official v2 'up_count' key
-                        if (response && response.data && response.data.up_count !== undefined) {
-                            var countStr = response.data.up_count.toString();
+                        // Adaptive check: Reads either 'up_count' or 'count' out of the response data block
+                        var liveCount = null;
+                        if (response && response.data) {
+                            if (response.data.up_count !== undefined) {
+                                liveCount = response.data.up_count;
+                            } else if (response.data.count !== undefined) {
+                                liveCount = response.data.count;
+                            }
+                        }
+
+                        if (liveCount !== null) {
+                            var countStr = liveCount.toString();
                             
+                            // Pad zeros to keep your clean 4-digit layout look (0000)
                             while (countStr.length < 4) { 
                                 countStr = "0" + countStr; 
                             }
