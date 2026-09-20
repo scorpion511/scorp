@@ -274,32 +274,61 @@
     <span id="scorp-live-text" style="font-size: 2.8vh; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -2px 6px #ffcc00, 2px -4px 10px #ff3300, -2px -8px 16px #000, 0 -12px 22px #000;">0000</span>
 </div>
 
-<script>
-    // 1. Correct Endpoint Domain: api.counterapi.dev
-    var hostUrl = 'https://api.counterapi.dev';
-    var pathUrl = '/v1/scorpion511/view/up';
-    var fullUrl = hostUrl + pathUrl;
-
-    fetch(fullUrl)
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-        if(data && data.count) {
-            // Formats numbers with digital padding (e.g., 0042)
-            var countStr = data.count.toString();
-            while(countStr.length < 4) { countStr = "0" + countStr; }
+    <script>
+        (function() {
+            // Your CounterAPI V2 configuration details
+            var workspace = 'scorpion511s-team'; 
+            var counterName = 'up';
             
-            // Targets the primary element safely
-            var mainCounter = document.getElementById('scorp-live-text');
-            if (mainCounter) {
-                mainCounter.innerText = countStr;
+            // New V2 Increment Endpoint Structure
+            var fullUrl = 'https://counterapi.dev' + workspace + '/counters/' + counterName + '/up';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', fullUrl, true);
+            
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        
+                        // V2 parses the data inside a nested object: response.data.count
+                        if (response && response.data && response.data.count !== undefined) {
+                            var countStr = response.data.count.toString();
+                            
+                            // Keep your razor-sharp 4-digit digital look (0000)
+                            while (countStr.length < 4) { 
+                                countStr = "0" + countStr; 
+                            }
+                            
+                            var mainCounter = document.getElementById('scorp-live-text');
+                            if (mainCounter) {
+                                mainCounter.innerText = countStr;
+                            }
+                        } else {
+                            handleFallback();
+                        }
+                    } catch (e) {
+                        handleFallback();
+                    }
+                } else {
+                    handleFallback();
+                }
+            };
+
+            xhr.onerror = function() {
+                handleFallback();
+            };
+
+            function handleFallback() {
+                // If it fails, check if the workspace name needs a slight adjustment
+                var mainCounter = document.getElementById('scorp-live-text');
+                if (mainCounter) {
+                    mainCounter.innerText = "ONLINE";
+                }
             }
-        }
-    })
-    .catch(function(err) {
-        console.log("Database connection error:", err);
-        var mainCounter = document.getElementById('scorp-live-text');
-        if (mainCounter) mainCounter.innerText = "ONLINE";
-    });
-</script>
+
+            xhr.send();
+        })();
+    </script>
 </body>
 </html>
