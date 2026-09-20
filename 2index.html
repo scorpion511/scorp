@@ -330,13 +330,17 @@
     </div>
                             <!-- Clean JavaScript Library Import for CounterAPI v2 -->
         <!-- Clean JavaScript Library Import for CounterAPI v2 -->
-        <script>
+            <script>
         (function() {
-            // Perfected public parameters targeting your active dashboard setup directly
-            var url = 'https://counterapi.dev';
+            // Visible variables matching your exact active dashboard settings
+            var team = 'scorpion511s-team';
+            var slug = 'first-counter-5601';
+
+            // Compiles cleanly without hiding text strings
+            var fullUrl = 'https://counterapi.dev' + team + '/' + slug + '/up';
 
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
+            xhr.open('GET', fullUrl, true);
             
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
