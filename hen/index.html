@@ -198,32 +198,53 @@
     <div class="scorp-credits">
         Designed and Compiled By Ahmed ESSAM
     </div>
-    <script>
+        <script>
         (function() {
             var hostUrl = 'https://api.counterapi.dev';
-            var pathUrl = '/v1/scorpion511/view/up'; // Connected to your same shared pool
+            var pathUrl = '/v1/scorpion511/view/up'; 
             var fullUrl = hostUrl + pathUrl;
 
-            fetch(fullUrl)
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if(data && data.count) {
-                    var countStr = data.count.toString();
-                    while(countStr.length < 4) { countStr = "0" + countStr; }
-                    
-                    var mainCounter = document.getElementById('scorp-live-text');
-                    if (mainCounter) {
-                        mainCounter.innerText = countStr;
+            // Using XMLHttpRequest for older PS4 WebKit compatibility
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', fullUrl, true);
+            
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        if (data && data.count) {
+                            var countStr = data.count.toString();
+                            // Pad with zeros to keep the 4-digit digital look (0000)
+                            while (countStr.length < 4) { 
+                                countStr = "0" + countStr; 
+                            }
+                            
+                            var mainCounter = document.getElementById('scorp-live-text');
+                            if (mainCounter) {
+                                mainCounter.innerText = countStr;
+                            }
+                        }
+                    } catch (e) {
+                        handleError();
                     }
+                } else {
+                    handleError();
                 }
-            })
-            .catch(function(err) {
-                console.log("Database connection error:", err);
+            };
+
+            xhr.onerror = function() {
+                handleError();
+            };
+
+            function handleError() {
                 var mainCounter = document.getElementById('scorp-live-text');
-                if (mainCounter) mainCounter.innerText = "ONLINE";
-            });
+                if (mainCounter) {
+                    mainCounter.innerText = "ONLINE";
+                }
+            }
+
+            xhr.send();
         })();
     </script>
-
 </body>
 </html>
