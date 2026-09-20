@@ -328,63 +328,54 @@
             <br>
                     </div>
     </div>
-                    <script>
+                        <script>
         (function() {
             var protocol = 'https:';
             var host = 'api.counterapi.dev';
             var version = 'v2';
-            
-            // CHANGED: Using your official workspace identifier slug instead of the team name
             var workspaceName = 'scorpion511'; 
-            var counterName = 'first-counter'; // Matches your dashboard counter name exactly
+            var counterName = 'first-counter'; // Your real counter slug from the dashboard background
 
-            // Builds the perfect live URL endpoint path
             var fullUrl = protocol + '//' + host + '/' + version + '/' + workspaceName + '/' + counterName + '/up';
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', fullUrl, true);
-            
-            xhr.onload = function() {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    try {
-                        var response = JSON.parse(xhr.responseText);
-                        
-                        // Adaptive check: Reads either 'up_count' or 'count' out of the response data block
-                        var liveCount = null;
-                        if (response && response.data) {
-                            if (response.data.up_count !== undefined) {
-                                liveCount = response.data.up_count;
-                            } else if (response.data.count !== undefined) {
-                                liveCount = response.data.count;
-                            }
-                        }
+            // Public front-end hits are securely tracked using a standard GET request without exposing master keys
+            fetch(fullUrl, { method: 'GET' })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('HTTP Status: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(function(responseObj) {
+                var liveCount = null;
+                if (responseObj && responseObj.data) {
+                    if (responseObj.data.up_count !== undefined) {
+                        liveCount = responseObj.data.up_count;
+                    } else if (responseObj.data.count !== undefined) {
+                        liveCount = responseObj.data.count;
+                    }
+                }
 
-                        if (liveCount !== null) {
-                            var countStr = liveCount.toString();
-                            
-                            // Pad zeros to keep your clean 4-digit layout look (0000)
-                            while (countStr.length < 4) { 
-                                countStr = "0" + countStr; 
-                            }
-                            
-                            var mainCounter = document.getElementById('scorp-live-text');
-                            if (mainCounter) {
-                                mainCounter.innerText = countStr;
-                            }
-                        } else {
-                            handleFallback();
-                        }
-                    } catch (e) {
-                        handleFallback();
+                if (liveCount !== null) {
+                    var countStr = liveCount.toString();
+                    
+                    // Pad zeros to keep your clean 4-digit layout look (0000)
+                    while (countStr.length < 4) { 
+                        countStr = "0" + countStr; 
+                    }
+                    
+                    var mainCounter = document.getElementById('scorp-live-text');
+                    if (mainCounter) {
+                        mainCounter.innerText = countStr;
                     }
                 } else {
                     handleFallback();
                 }
-            };
-
-            xhr.onerror = function() {
+            })
+            .catch(function(error) {
+                console.error('Counter trace error:', error);
                 handleFallback();
-            };
+            });
 
             function handleFallback() {
                 var mainCounter = document.getElementById('scorp-live-text');
@@ -392,11 +383,9 @@
                     mainCounter.innerText = "ONLINE";
                 }
             }
-
-            xhr.send();
         })();
 
-        // System clock logic
+        // System clock logic for your menu header layout widgets
         function updateTime() {
             var now = new Date();
             var hours = now.getHours().toString().padStart(2, '0');
