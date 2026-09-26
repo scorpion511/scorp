@@ -157,6 +157,22 @@
             color: #fff;
             text-shadow: 0 0 10px #00f0ff, 0 0 20px #00a8ff;
         }
+        /* Centered Circular Branding Emblem Style */
+.scorp-main-logo {
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: -6vh; /* Safely balances vertical scaling above the header container */
+    display: block;
+    width: 100%;
+}
+.scorp-main-logo img {
+    height: 105px;       
+    width: 105px;        /* Forces perfect circle layout dimensions */
+    object-fit: cover;   
+    border-radius: 50%;  
+    border: 3px solid #00f0ff; /* Neon cyan border ring matching your buttons */
+    filter: drop-shadow(0px 0px 12px #00f0ff); /* Blue aura glow */
+}
     </style>
     <script>
         function showdate() {
@@ -181,6 +197,12 @@
         <span id="clock"></span>
     </div>
 
+    <!-- Centered Custom Circular Logo Block -->
+    <div class="scorp-main-logo">
+        <img src="logo_scorp.png" alt="SCORPION LOGO">
+    </div>
+
+    <!-- ONLY KEEP ONE HEADER BOX -->
     <div class="scorp-header-box">
         <h1 class="scorp-header">
             WELCOME TO SCORPION HACK ALL IN 1
