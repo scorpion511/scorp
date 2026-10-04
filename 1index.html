@@ -178,96 +178,51 @@
     background: rgba(10, 15, 20, 0.85);
     border: 2px solid #00f0ff;
     border-radius: 10px;
-    padding: 1.5vh 2.5vh;
-    margin: 1.5vh 2.5% 1.5vh auto; /* Pushes it completely to the right side */
-    max-width: 340px; /* Makes the card narrower */
+    padding: 2vh 4vh;
+    margin: 1.5vh auto;
+    max-width: 520px;
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
     transition: all 0.3s ease;
-    text-align: left;
-}
-
-/* --- Compact Sliding Side Panel (Bottom Right Dock) --- */
-.scorp-side-panel {
-    position: fixed;
-    right: -285px; /* Tightly tucked off-screen by default */
-    bottom: 4vh;   /* MOVED DOWN: Positioned close to the bottom screen edge */
-    width: 260px;  /* MADE SMALLER: Narrower to preserve screen space */
-    background: rgba(10, 15, 20, 0.95);
-    border: 2px solid #00f0ff;
-    border-right: none;
-    border-radius: 12px 0 0 12px;
-    padding: 1.5vh;
-    box-shadow: -5px 0 20px rgba(0, 240, 255, 0.3);
-    transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-    z-index: 10000;
-}
-
-/* Slide out when hovering over the panel area */
-.scorp-side-panel:hover {
-    right: 0;
-}
-
-/* The vertical label tab that remains visible on screen edge */
-.scorp-panel-handle {
-    position: absolute;
-    left: -42px;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    transform-origin: center center;
-    background: #0a0f14;
-    border: 2px solid #00f0ff;
-    border-bottom: none;
-    color: #00f0ff;
-    padding: 4px 12px;
-    font-weight: 900;
-    font-size: 1.4vh; 
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 6px 6px 0 0;
-    cursor: pointer;
-    box-shadow: 0 -4px 10px rgba(0, 240, 255, 0.2);
-    white-space: nowrap;
 }
 
 .scorp-dev-badge {
     background-color: #00f0ff;
     color: #000000;
-    padding: 2px 8px;
+    padding: 4px 14px;
     border-radius: 4px;
-    font-size: 1.3vh;
+    font-size: 1.8vh;
     font-weight: 900;
     letter-spacing: 1px;
     text-transform: uppercase;
-    box-shadow: 0 0 6px #00f0ff;
-    display: inline-block;
-    margin-bottom: 0.8vh;
+    box-shadow: 0 0 10px #00f0ff;
 }
 
 .scorp-dev-title {
     color: #ffffff;
-    font-size: 1.6vh;
+    font-size: 2.4vh;
     font-weight: bold;
-    margin-bottom: 0.8vh;
-    text-shadow: 0 0 6px rgba(0, 240, 255, 0.5);
-    text-align: center;
+    margin: 1.5vh 0 1vh 0;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
 }
 
 .scorp-dev-list {
     list-style: none;
     padding: 0;
-    margin: 0.4vh 0;
+    margin: 1vh 0;
     text-align: left;
+    display: inline-block;
 }
 
 .scorp-dev-list li {
-    font-size: 1.4vh;
+    font-size: 2vh;
     color: #e0e0e0;
-    margin-bottom: 0.4vh;
-    line-height: 1.2;
+    margin-bottom: 0.8vh;
+    line-height: 1.4;
 }
 
 .scorp-dev-list strong {
     color: #00ffcc;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
 }
 
 .scorp-wa-btn {
@@ -277,28 +232,43 @@
     background: rgba(37, 211, 102, 0.15);
     color: #25D366;
     border: 2px solid #25D366;
-    padding: 0.6vh 1.2vh;
-    border-radius: 4px;
+    padding: 1vh 2.5vh;
+    border-radius: 8px;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: 2.1vh;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    width: 100%;
-    justify-content: center;
-    box-sizing: border-box;
+    margin-top: 1vh;
 }
 
 .scorp-wa-btn:hover {
     background: #25D366;
     color: #000000;
-    box-shadow: 0 0 12px #25D366;
+    box-shadow: 0 0 20px #25D366;
+    transform: translateY(-2px);
 }
 
 .scorp-wa-icon {
-    width: 1.6vh;
-    height: 1.6vh;
-    margin-right: 0.5vh;
+    width: 2.4vh;
+    height: 2.4vh;
+    margin-right: 1vh;
     fill: currentColor;
 }
+    </style>
+    <script>
+        function showdate() {
+            var dt = new Date();
+            var Hour = dt.getHours();
+            var Minute = dt.getMinutes();
+            var Day = dt.getDate();
+            var Month = dt.getMonth() + 1;
+            var Year = dt.getFullYear();
+            if (Minute < 10) { Minute = "0" + Minute; };
+            if (Hour < 10) { Hour = "0" + Hour; };
+            document.getElementById("date").innerHTML = (Day + "/" + Month + "/" + Year);
+            document.getElementById("clock").innerHTML = (Hour + ":" + Minute);
+        }
+        setInterval(showdate, 1000);
     </script>
 </head>
 <body onload="showdate()">
@@ -370,40 +340,31 @@
                 PKG-ZONE SITE
             </a>
     <!-- Cyberpunk Contact & Profile Card Section -->
-<!-- Compact Side Contact Profile Card -->
-<div class="scorp-dev-card" onMouseOver="document.getElementById('msgs').innerHTML='Need console support? Contact the Developer directly.'">
-    <div style="text-align: center; margin-bottom: 1vh;">
-        <span class="scorp-dev-badge">⚡ Hacking Developer</span>
-    </div>
+<div class="scorp-dev-card" onMouseOver="document.getElementById('msgs').innerHTML='Need console support? Contact the Hacking Developer directly.'">
+    <span class="scorp-dev-badge">⚡ Hacking Developer</span>
     <div class="scorp-dev-title">Modification & Setup Services</div>
     
     <ul class="scorp-dev-list">
-        <li>🔓 <strong>Jailbreaking:</strong> Console modifications & framework setups.</li>
-        <li>🎮 <strong>Gaming:</strong> Storage setup & game installations.</li>
+        <li>🔓 <strong>Device Jailbreaking:</strong> Safe console modifications and framework alterations.</li>
+        <li>🎮 <strong>PS4 & PS5 Gaming:</strong> Direct storage setups and custom game installations.</li>
     </ul>
 
     <!-- Arabic Identification Note -->
-    <div style="margin-top: 1vh; margin-bottom: 1vh; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 1vh; direction: rtl; font-family: sans-serif;">
-        <p style="color: #00ffcc; font-size: 1.7vh; font-weight: bold; margin: 0; text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);">
+    <div style="margin-top: 1.5vh; margin-bottom: 2vh; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 1.5vh; direction: rtl; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <p style="color: #00ffcc; font-size: 2vh; font-weight: bold; margin: 0; text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);">
             مطور لتهكير اجهزة بلايستيشن 5 و 4 و تحميل كافة الالعاب
         </p>
     </div>
 
-    <!-- Mini Side-by-Side QR & Action Button Container -->
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1.5vh; gap: 15px;">
-        <div style="text-align: center; flex-grow: 1;">
-            <a href="https://wa.me" target="_blank" class="scorp-wa-btn" onMouseOver="event.stopPropagation(); document.getElementById('msgs').innerHTML='Click to open WhatsApp chat with +201093424331'">
-                <svg class="scorp-wa-icon" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                WhatsApp Chat
-            </a>
-        </div>
-        
-        <!-- Small 90px QR Frame -->
-        <div style="padding: 4px; background: #ffffff; border-radius: 6px; border: 2px solid #00f0ff; box-shadow: 0 0 10px rgba(0, 240, 255, 0.4); flex-shrink: 0;" onMouseOver="event.stopPropagation(); document.getElementById('msgs').innerHTML='Scan QR with your phone camera to start desktop linking'">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https://wa.me" alt="WhatsApp QR Code" style="display: block; width: 90px; height: 90px;" />
+    <!-- Scan to Chat QR Code Block -->
+    <div style="margin: 2vh auto; text-align: center;">
+        <p style="font-size: 1.6vh; color: #00f0ff; margin: 0 0 1vh 0; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">
+            Scan to Chat / إمسح الكود للتواصل
+        </p>
+        <div style="display: inline-block; padding: 8px; background: #ffffff; border-radius: 8px; border: 2px solid #00f0ff; box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/201093424331" alt="WhatsApp QR Code" style="display: block; width: 120px; height: 120px;" />
         </div>
     </div>
-</div>
 
     <div>
         <a href="https://wa.me/201093424331" target="_blank" class="scorp-wa-btn" onMouseOver="event.stopPropagation(); document.getElementById('msgs').innerHTML='Click to open WhatsApp chat with +201093424331'">
