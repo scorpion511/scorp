@@ -175,37 +175,41 @@
 }
         /* --- Cyberpunk Contact Card Style --- */
 /* --- Ultra Compact Developer Card --- */
-/* --- Safe Pinned Bottom-Right Card Overlay --- */
+/* --- Ultra Compact Pinned Sidebar Fix --- */
 .scorp-dev-card {
     position: fixed;
-    bottom: 2vh;     /* Forces card all the way down */
-    right: 2vw;      /* Pushes card completely to the right side */
+    bottom: 2vh;     /* Keeps it neatly pinned down */
+    right: 1.5vw;    /* Pushes it safely against the right edge */
     background: rgba(10, 15, 20, 0.9);
     border: 2px solid #00f0ff;
-    border-radius: 6px;
-    padding: 0.8vh 1.5vh;
-    width: 260px;    /* Narrow fixed width stays tiny on screen */
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-    z-index: 9999;   /* Floats it cleanly over footers */
+    border-radius: 8px;
+    padding: 1vh 1.5vh;
+    width: 230px;    /* Narrow fixed width to save screen space */
+    max-height: 45vh; /* STRICT LIMIT: Stops the box from growing vertically */
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+    z-index: 9999;
+    box-sizing: border-box;
+    overflow: hidden; /* Cuts off any giant hidden blank sections */
 }
 
 .scorp-dev-badge {
     background-color: #00f0ff;
     color: #000000;
-    padding: 2px 6px;
+    padding: 1px 6px;
     border-radius: 4px;
-    font-size: 1.2vh;
+    font-size: 1.3vh;
     font-weight: 900;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     display: inline-block;
+    margin-bottom: 0.5vh;
 }
 
 .scorp-dev-title {
     color: #ffffff;
     font-size: 1.5vh;
     font-weight: bold;
-    margin: 0.3vh 0;
+    margin: 0.2vh 0;
 }
 
 .scorp-dev-list {
@@ -222,12 +226,12 @@
     line-height: 1.2;
 }
 
-/* Forces your QR image matrix to shrink down into a tiny square framework */
+/* Force the QR image wrapper block to be small and tight */
 .scorp-dev-card img {
-    width: 75px !important;
-    height: 75px !important;
+    width: 65px !important;
+    height: 65px !important;
     display: block;
-    margin: 0.5vh auto 0 auto;
+    margin: 0.4vh auto 0 auto;
 }
 
     </style>
