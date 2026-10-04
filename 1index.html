@@ -175,86 +175,59 @@
 }
         /* --- Cyberpunk Contact Card Style --- */
 /* --- Ultra Compact Developer Card --- */
+/* --- Safe Pinned Bottom-Right Card Overlay --- */
 .scorp-dev-card {
-    background: rgba(10, 15, 20, 0.85);
+    position: fixed;
+    bottom: 2vh;     /* Forces card all the way down */
+    right: 2vw;      /* Pushes card completely to the right side */
+    background: rgba(10, 15, 20, 0.9);
     border: 2px solid #00f0ff;
     border-radius: 6px;
-    padding: 1vh 2vh;
-    margin: 1vh auto;
-    max-width: 380px;
+    padding: 0.8vh 1.5vh;
+    width: 260px;    /* Narrow fixed width stays tiny on screen */
     box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-    transition: all 0.3s ease;
+    z-index: 9999;   /* Floats it cleanly over footers */
 }
 
 .scorp-dev-badge {
     background-color: #00f0ff;
     color: #000000;
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
-    font-size: 1.4vh;
+    font-size: 1.2vh;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    box-shadow: 0 0 6px #00f0ff;
     display: inline-block;
 }
 
 .scorp-dev-title {
     color: #ffffff;
-    font-size: 1.7vh;
+    font-size: 1.5vh;
     font-weight: bold;
-    margin: 0.5vh 0;
-    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+    margin: 0.3vh 0;
 }
 
 .scorp-dev-list {
     list-style: none;
     padding: 0;
-    margin: 0.3vh 0;
+    margin: 0.2vh 0;
     text-align: left;
-    display: inline-block;
 }
 
 .scorp-dev-list li {
-    font-size: 1.5vh;
+    font-size: 1.3vh;
     color: #e0e0e0;
-    margin-bottom: 0.3vh;
+    margin-bottom: 0.2vh;
     line-height: 1.2;
 }
 
-.scorp-dev-list strong {
-    color: #00ffcc;
-    text-shadow: 0 0 4px rgba(0, 255, 204, 0.2);
-}
-
-.scorp-wa-btn {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    background: rgba(37, 211, 102, 0.15);
-    color: #25D366;
-    border: 2px solid #25D366;
-    padding: 0.5vh 1.5vh;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 1.6vh;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    margin-top: 0.5vh;
-}
-
-.scorp-wa-btn:hover {
-    background: #25D366;
-    color: #000000;
-    box-shadow: 0 0 12px #25D366;
-    transform: translateY(-1px);
-}
-
-.scorp-wa-icon {
-    width: 1.8vh;
-    height: 1.8vh;
-    margin-right: 0.6vh;
-    fill: currentColor;
+/* Forces your QR image matrix to shrink down into a tiny square framework */
+.scorp-dev-card img {
+    width: 75px !important;
+    height: 75px !important;
+    display: block;
+    margin: 0.5vh auto 0 auto;
 }
 
     </style>
