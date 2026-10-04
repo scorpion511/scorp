@@ -331,22 +331,25 @@
                onMouseOver="document.getElementById('msgs').innerHTML='The ultimate community homebrew and custom theme database!'">
                 PKG-ZONE SITE
             </a>
-    <!-- Cyberpunk Contact & Profile Card Section -->
-<div class="scorp-dev-card" onMouseOver="document.getElementById('msgs').innerHTML='Need console support? Contact the Hacking Developer directly.'">
-    <span class="scorp-dev-badge">⚡ Hacking Developer</span>
-    <div class="scorp-dev-title">Modification & Setup Services</div>
+  <!-- Cyberpunk Contact & Profile Card Section - Locked in Bottom Left corner to never cover main buttons -->
+<div class="scorp-dev-card" onMouseOver="document.getElementById('msgs').innerHTML='Need console support? Contact the Hacking Developer directly.'" style="position: fixed; bottom: 15px; left: 15px; width: 250px; background: rgba(0, 10, 20, 0.85); border: 2px solid #00f0ff; border-radius: 12px; box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); padding: 12px; text-align: center; z-index: 9999; box-sizing: border-box;">
     
-    <ul class="scorp-dev-list">
-        <li>🔓 <strong>Device Jailbreaking:</strong> Safe console modifications and framework alterations.</li>
-        <li>🎮 <strong>PS4 & PS5 Gaming:</strong> Direct storage setups and custom game installations.</li>
+    <!-- Unified Font & Increased English Sizes to match the Arabic style -->
+    <span class="scorp-dev-badge" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.6vh; font-weight: bold; display: inline-block; margin-bottom: 5px;">⚡ Hacking Developer</span>
+    <div class="scorp-dev-title" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.9vh; font-weight: 900; color: #00f0ff; text-transform: uppercase; margin-bottom: 1.2vh;">Modification & Setup Services</div>
+    
+    <ul class="scorp-dev-list" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.7vh; line-height: 1.5; color: #fff; padding-left: 15px; margin: 0 0 1.5vh 0; text-align: left; list-style-type: disc;">
+        <li style="margin-bottom: 0.6vh;">🔓 <strong>Device Jailbreaking:</strong> Safe console modifications and framework alterations.</li>
+        <li>🎮 <strong>PS4 &amp; PS5 Gaming:</strong> Direct storage setups and custom game installations.</li>
     </ul>
 
-    <!-- Arabic Identification Note -->
-    <div style="margin-top: 1.5vh; margin-bottom: 2vh; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 1.5vh; direction: rtl; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <!-- Arabic Identification Note (Perfectly original layout specs) -->
+    <div style="margin-top: 1.2vh; margin-bottom: 1.5vh; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 1.2vh; direction: rtl; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
         <p style="color: #00ffcc; font-size: 2vh; font-weight: bold; margin: 0; text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);">
             مطور لتهكير اجهزة بلايستيشن 5 و 4 و تحميل كافة الالعاب
         </p>
     </div>
+
 
     <!-- Scan to Chat QR Code Block -->
     <div style="margin: 2vh auto; text-align: center;">
